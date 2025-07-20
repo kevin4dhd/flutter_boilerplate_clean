@@ -12,7 +12,7 @@ targets:
             - schema: graphql/schema.graphql
               queries_glob: graphql/pokedex.graphql
               output: lib/src/repository/source/api/model/generated/pokedex_graphql.dart
-          
+
           scalar_mapping:
             - graphql_type: DateTime
               dart_type: DateTime
