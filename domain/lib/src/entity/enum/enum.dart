@@ -27,12 +27,17 @@ enum LanguageCode {
   ja(
     localeCode: LocaleConstants.ja,
     serverValue: ServerRequestResponseConstants.ja,
+  ),
+  es(
+    localeCode: LocaleConstants.es,
+    serverValue: ServerRequestResponseConstants.es,
   );
 
   const LanguageCode({
     required this.localeCode,
     required this.serverValue,
   });
+
   final String localeCode;
   final String serverValue;
 

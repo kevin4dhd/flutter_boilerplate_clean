@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "login": "Login",
   "fakeLogin": "Fake Login",
   "logout": "Logout",
@@ -27,5 +28,7 @@
   "myPage": "My Page",
   "home": "Home",
   "darkTheme": "Dark Theme",
-  "japanese": "Japanese"
+  "japanese": "Japanese",
+  "spanish": "Spanish",
+  "english": "English"
 }

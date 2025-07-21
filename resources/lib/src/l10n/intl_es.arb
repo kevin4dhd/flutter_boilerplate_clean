@@ -1,4 +1,5 @@
 {
+  "@@locale": "es",
   "login": "Iniciar sesión",
   "fakeLogin": "Inicio de sesión falso",
   "logout": "Cerrar sesión",
@@ -27,5 +28,7 @@
   "myPage": "Mi página",
   "home": "Inicio",
   "darkTheme": "Tema oscuro",
-  "japanese": "Japonés"
+  "japanese": "Japonés",
+  "english": "Inglés",
+  "spanish": "Español"
 }

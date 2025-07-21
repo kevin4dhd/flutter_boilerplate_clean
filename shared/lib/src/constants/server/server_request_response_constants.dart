@@ -9,6 +9,7 @@ class ServerRequestResponseConstants {
   /// language code
   static const en = 'EN';
   static const ja = 'JA';
+  static const es = 'ES';
 
   /// gender
   static const male = 0;

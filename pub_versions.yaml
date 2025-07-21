@@ -21,7 +21,7 @@ cached_network_image: 3.2.1
 camera: 0.9.4+5
 carousel_slider: 4.1.1
 cloud_firestore: 4.8.2
-connectivity_plus: 3.0.6
+connectivity_plus: 6.1.4
 crypto: 3.0.1
 cupertino_icons: 1.0.3
 custom_lint: 0.5.0

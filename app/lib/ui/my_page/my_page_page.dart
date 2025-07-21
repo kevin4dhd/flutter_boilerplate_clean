@@ -46,18 +46,28 @@ class _MyPagePageState extends BasePageState<MyPagePage, MyPageBloc> {
                 buildWhen: (previous, current) =>
                     previous.languageCode != current.languageCode,
                 builder: (context, state) {
-                  return SwitchListTile.adaptive(
-                    title: Text(
-                      S.current.japanese,
-                      style: AppTextStyles.s14w400Primary(),
-                    ),
-                    tileColor: AppColors.current.primaryColor,
-                    value: state.languageCode == LanguageCode.ja,
-                    onChanged: (isJa) => appBloc.add(
-                      AppLanguageChanged(
-                          languageCode:
-                              isJa ? LanguageCode.ja : LanguageCode.en),
-                    ),
+                  return DropdownButton<LanguageCode>(
+                    value: state.languageCode,
+                    onChanged: (selectedLanguage) {
+                      if (selectedLanguage != null) {
+                        appBloc.add(
+                            AppLanguageChanged(languageCode: selectedLanguage));
+                      }
+                    },
+                    items: [
+                      DropdownMenuItem(
+                        value: LanguageCode.en,
+                        child: Text(S.current.english),
+                      ),
+                      DropdownMenuItem(
+                        value: LanguageCode.ja,
+                        child: Text(S.current.japanese),
+                      ),
+                      DropdownMenuItem(
+                        value: LanguageCode.es,
+                        child: Text(S.current.spanish),
+                      ),
+                    ],
                   );
                 },
               ),

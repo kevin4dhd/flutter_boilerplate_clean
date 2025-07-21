@@ -9,7 +9,7 @@ environment:
 
 dependency_overrides:
   analyzer: 7.4.1
-  connectivity_plus: 5.0.2
+  connectivity_plus: 6.1.4
   dart_style: 3.1.1
   js: ^0.7.0
 dependencies:

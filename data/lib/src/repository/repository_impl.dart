@@ -37,7 +37,10 @@ class RepositoryImpl implements Repository {
 
   @override
   Stream<bool> get onConnectivityChanged =>
-      Connectivity().onConnectivityChanged.map((event) => event != ConnectivityResult.none);
+      Connectivity().onConnectivityChanged.map(
+            (List<ConnectivityResult> event) =>
+                event.any((e) => e != ConnectivityResult.none),
+          );
 
   @override
   bool get isDarkMode => _appPreferences.isDarkMode;
@@ -61,7 +64,8 @@ class RepositoryImpl implements Repository {
     required String email,
     required String password,
   }) async {
-    final response = await _appApiService.login(email: email, password: password);
+    final response =
+        await _appApiService.login(email: email, password: password);
     await Future.wait([
       saveAccessToken(response?.data?.accessToken ?? ''),
       saveUserPreference(
@@ -93,7 +97,8 @@ class RepositoryImpl implements Repository {
       );
 
   @override
-  Future<void> forgotPassword(String email) => _appApiService.forgotPassword(email);
+  Future<void> forgotPassword(String email) =>
+      _appApiService.forgotPassword(email);
 
   @override
   Future<void> register({
@@ -120,7 +125,8 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  User getUserPreference() => _preferenceUserDataMapper.mapToEntity(_appPreferences.currentUser);
+  User getUserPreference() =>
+      _preferenceUserDataMapper.mapToEntity(_appPreferences.currentUser);
 
   @override
   Future<void> clearCurrentUserData() => _appPreferences.clearCurrentUserData();
@@ -137,11 +143,13 @@ class RepositoryImpl implements Repository {
 
   @override
   Future<bool> saveLanguageCode(LanguageCode languageCode) {
-    return _appPreferences.saveLanguageCode(_languageCodeDataMapper.mapToData(languageCode));
+    return _appPreferences
+        .saveLanguageCode(_languageCodeDataMapper.mapToData(languageCode));
   }
 
   @override
-  Future<bool> saveIsDarkMode(bool isDarkMode) => _appPreferences.saveIsDarkMode(isDarkMode);
+  Future<bool> saveIsDarkMode(bool isDarkMode) =>
+      _appPreferences.saveIsDarkMode(isDarkMode);
 
   @override
   Future<User> getMe() async {
@@ -185,9 +193,10 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<void> saveAccessToken(String accessToken) => _appPreferences.saveAccessToken(accessToken);
+  Future<void> saveAccessToken(String accessToken) =>
+      _appPreferences.saveAccessToken(accessToken);
 
   @override
-  Future<bool> saveUserPreference(User user) =>
-      _appPreferences.saveCurrentUser(_preferenceUserDataMapper.mapToData(user));
+  Future<bool> saveUserPreference(User user) => _appPreferences
+      .saveCurrentUser(_preferenceUserDataMapper.mapToData(user));
 }
