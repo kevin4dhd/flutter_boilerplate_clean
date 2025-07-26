@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../app.dart';
 import 'package:shared/shared.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'bloc/splash.dart';
 
 @RoutePage()
@@ -16,6 +17,9 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends BasePageState<SplashPage, SplashBloc>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
+  late final Animation<double> _scaleAnimation;
+  late final Animation<Color?> _startColorAnimation;
+  late final Animation<Color?> _endColorAnimation;
 
   @override
   void initState() {
@@ -23,7 +27,18 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc>
     _controller = AnimationController(
       vsync: this,
       duration: DurationConstants.defaultSplashDuration,
-    )..repeat();
+    )..repeat(reverse: true);
+    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.2).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+    _startColorAnimation = const ColorTween(
+      begin: Color(0xFF001b4e),
+      end: Color(0xFF004e92),
+    ).animate(_controller);
+    _endColorAnimation = const ColorTween(
+      begin: Color(0xFF0f2b72),
+      end: Color(0xFF2a5298),
+    ).animate(_controller);
     bloc.add(const SplashPageInitiated());
   }
 
@@ -35,13 +50,33 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc>
 
   @override
   Widget buildPage(BuildContext context) {
-    return CommonScaffold(
-      body: Center(
-        child: RotationTransition(
-          turns: _controller,
-          child: const FlutterLogo(size: 100),
-        ),
-      ),
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        return CommonScaffold(
+          body: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  _startColorAnimation.value ?? const Color(0xFF001b4e),
+                  _endColorAnimation.value ?? const Color(0xFF2a5298),
+                ],
+              ),
+            ),
+            child: Center(
+              child: ScaleTransition(
+                scale: _scaleAnimation,
+                child: SvgPicture.asset(
+                  'assets/images/app_logo.svg',
+                  width: 120,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
