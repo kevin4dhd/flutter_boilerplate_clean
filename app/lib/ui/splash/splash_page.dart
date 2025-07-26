@@ -31,13 +31,13 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc>
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.2).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
-    _startColorAnimation = const ColorTween(
-      begin: Color(0xFF001b4e),
-      end: Color(0xFF004e92),
+    _startColorAnimation = ColorTween(
+      begin: const Color(0xFF001b4e),
+      end: const Color(0xFF004e92),
     ).animate(_controller);
-    _endColorAnimation = const ColorTween(
-      begin: Color(0xFF0f2b72),
-      end: Color(0xFF2a5298),
+    _endColorAnimation = ColorTween(
+      begin: const Color(0xFF0f2b72),
+      end: const Color(0xFF2a5298),
     ).animate(_controller);
     bloc.add(const SplashPageInitiated());
   }
