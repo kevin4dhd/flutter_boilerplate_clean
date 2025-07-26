@@ -33,6 +33,7 @@ class SplashBloc extends BaseBloc<SplashEvent, SplashState> {
         );
       },
       handleError: false,
+      handleLoading: false,
     );
   }
 }
