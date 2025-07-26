@@ -6,5 +6,4 @@ class DurationConstants {
   static const defaultGeneralDialogTransitionDuration = Duration(milliseconds: 200);
   static const defaultSnackBarDuration = Duration(seconds: 3);
   static const defaultErrorVisibleDuration = Duration(seconds: 3);
-  static const defaultSplashDuration = Duration(seconds: 3);
 }

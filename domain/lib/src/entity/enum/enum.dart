@@ -3,7 +3,6 @@ import 'package:resources/resources.dart';
 import 'package:shared/shared.dart';
 
 enum InitialAppRoute {
-  splash,
   login,
   main,
 }
