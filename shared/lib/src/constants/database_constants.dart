@@ -1,5 +1,5 @@
 class DatabaseConstants {
   const DatabaseConstants._();
 
-  static const databaseName = 'NFT';
+  static const databaseName = 'NFT.db';
 }

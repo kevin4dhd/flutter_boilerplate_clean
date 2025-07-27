@@ -1,5 +1,4 @@
 import UserNotifications
-import ObjectBox
 
 class NotificationService: UNNotificationServiceExtension {
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
@@ -8,10 +7,7 @@ class NotificationService: UNNotificationServiceExtension {
             bestAttemptContent.body = decrypt(encrypted)
         }
 
-        if let box: Box<LocalMessageData> = ObjectBoxHelper.getBox(LocalMessageData.self) {
-            let entity = LocalMessageData(text: bestAttemptContent.body)
-            try? box.put(entity)
-        }
+        SqliteHelper.insertMessage(bestAttemptContent.body)
 
         contentHandler(bestAttemptContent)
     }
@@ -21,7 +17,6 @@ class NotificationService: UNNotificationServiceExtension {
     }
 
     private func decrypt(_ text: String) -> String {
-        // TODO: implement decryption logic
         return text
     }
 }
