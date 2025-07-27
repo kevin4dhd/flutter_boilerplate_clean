@@ -3,6 +3,7 @@ import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data.dart';
+import 'source/database/mapper/local_message_data_mapper.dart';
 
 @LazySingleton(as: Repository)
 class RepositoryImpl implements Repository {
@@ -25,6 +26,7 @@ class RepositoryImpl implements Repository {
   final LanguageCodeDataMapper _languageCodeDataMapper;
   final GenderDataMapper _genderDataMapper;
   final LocalUserDataMapper _localUserDataMapper;
+  final LocalMessageDataMapper _localMessageDataMapper = LocalMessageDataMapper();
 
   @override
   bool get isLoggedIn => _appPreferences.isLoggedIn;
@@ -199,4 +201,18 @@ class RepositoryImpl implements Repository {
   @override
   Future<bool> saveUserPreference(User user) => _appPreferences
       .saveCurrentUser(_preferenceUserDataMapper.mapToData(user));
+
+  @override
+  @override
+  Future<PagedList<Message>> getLocalMessages({
+    required int page,
+    required int limit,
+  }) async {
+    final paged = _appDatabase.getMessages(page: page, limit: limit);
+    return PagedList(
+      data: _localMessageDataMapper.mapToListEntity(paged.data),
+      next: paged.next,
+      offset: paged.offset,
+    );
+  }
 }

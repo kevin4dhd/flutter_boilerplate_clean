@@ -9,7 +9,11 @@ import 'home.dart';
 
 @Injectable()
 class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
-  HomeBloc(this._getUsersUseCase) : super(HomeState()) {
+  HomeBloc(
+    this._getUsersUseCase,
+    this._getMessagesUseCase,
+    this._loadMoreMessagesUseCase,
+  ) : super(HomeState()) {
     on<HomePageInitiated>(
       _onHomePageInitiated,
       transformer: log(),
@@ -24,8 +28,20 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
       _onHomePageRefreshed,
       transformer: log(),
     );
+
+    on<MessagesLoadMore>(
+      _onMessagesLoadMore,
+      transformer: log(),
+    );
+
+    on<MessagesUpdated>(
+      _onMessagesUpdated,
+      transformer: log(),
+    );
   }
   final GetUsersUseCase _getUsersUseCase;
+  final GetMessagesUseCase _getMessagesUseCase;
+  final LoadMoreMessagesUseCase _loadMoreMessagesUseCase;
 
   FutureOr<void> _onHomePageInitiated(HomePageInitiated event, Emitter<HomeState> emit) async {
     await _getUsers(
@@ -34,10 +50,22 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
       doOnSubscribe: () async => emit(state.copyWith(isShimmerLoading: true)),
       doOnSuccessOrError: () async => emit(state.copyWith(isShimmerLoading: false)),
     );
+
+    await _getMessages(
+      emit: emit,
+      isInitialLoad: true,
+    );
   }
 
   FutureOr<void> _onUserLoadMore(UserLoadMore event, Emitter<HomeState> emit) async {
     await _getUsers(
+      emit: emit,
+      isInitialLoad: false,
+    );
+  }
+
+  FutureOr<void> _onMessagesLoadMore(MessagesLoadMore event, Emitter<HomeState> emit) async {
+    await _getMessages(
       emit: emit,
       isInitialLoad: false,
     );
@@ -78,5 +106,28 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
       handleLoading: false,
       maxRetries: 3,
     );
+  }
+
+  Future<void> _getMessages({
+    required Emitter<HomeState> emit,
+    required bool isInitialLoad,
+  }) async {
+    return runBlocCatching(
+      action: () async {
+        final output = await (isInitialLoad
+            ? _getMessagesUseCase.execute(const GetMessagesInput(), true)
+            : _loadMoreMessagesUseCase.execute(const LoadMoreMessagesInput(), false));
+        emit(state.copyWith(messages: output));
+      },
+      handleLoading: false,
+    );
+  }
+
+  FutureOr<void> _onMessagesUpdated(
+    MessagesUpdated event,
+    Emitter<HomeState> emit,
+  ) async {
+    final list = [event.message, ...state.messages.data];
+    emit(state.copyWith(messages: state.messages.copyWith(data: list)));
   }
 }

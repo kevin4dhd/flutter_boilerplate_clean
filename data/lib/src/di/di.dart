@@ -5,7 +5,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared/shared.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../repository/source/database/generated/objectbox.g.dart' show getObjectBoxModel;
+import '../repository/source/database/generated/objectbox.g.dart'
+    show getObjectBoxModel;
 import 'di.config.dart';
 
 @module
@@ -16,8 +17,12 @@ abstract class ServiceModule {
   @preResolve
   Future<Store> getStore() async {
     final dir = await getApplicationDocumentsDirectory();
+    print('ObjectBox DB Path: ${dir.path}/${DatabaseConstants.databaseName}');
 
-    return Store(getObjectBoxModel(), directory: '${dir.path}/${DatabaseConstants.databaseName}');
+    return Store(
+      getObjectBoxModel(),
+      directory: '${dir.path}/${DatabaseConstants.databaseName}',
+    );
   }
 }
 

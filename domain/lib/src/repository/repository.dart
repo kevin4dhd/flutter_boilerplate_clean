@@ -70,4 +70,9 @@ abstract class Repository {
   bool deleteImageUrl(int id);
 
   int deleteAllUsersAndImageUrls();
+
+  Future<PagedList<Message>> getLocalMessages({
+    required int page,
+    required int limit,
+  });
 }

@@ -21,6 +21,9 @@ dependencies:
     sdk: flutter
   flutter_bloc: 8.1.4
   flutter_local_notifications: 19.3.1
+  firebase_messaging: ^14.7.10
+  objectbox: ^4.3.0
+  objectbox_flutter_libs: ^4.3.0
   flutter_localizations:
     sdk: flutter
   flutter_screenutil: 5.9.0
@@ -54,6 +57,7 @@ dev_dependencies:
   mocktail: 1.0.3
   nals_lints:
     path: ../nals_lints
+  objectbox_generator: ^4.3.0
 
 # Config generate when build
 flutter_gen:
@@ -79,6 +83,9 @@ flutter:
   generate: false
   assets:
     - assets/images/
+
+objectbox:
+  output_dir: lib/objectbox
 #  fonts:
 #    - family: Muli
 #      fonts:
