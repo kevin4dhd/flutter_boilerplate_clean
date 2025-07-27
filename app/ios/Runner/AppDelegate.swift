@@ -1,5 +1,6 @@
 import UIKit
 import Flutter
+import FirebaseCore
 // import os.log
 
 @UIApplicationMain
@@ -9,6 +10,8 @@ import Flutter
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
+    FirebaseApp.configure()
+    UNUserNotificationCenter.current().delegate = self
     // get secrets here!
     // let dartDefinesString = Bundle.main.object(forInfoDictionaryKey:"DartDefines") as! String
     // var dartDefinesDictionary = [String:String]()

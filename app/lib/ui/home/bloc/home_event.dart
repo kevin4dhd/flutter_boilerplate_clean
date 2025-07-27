@@ -26,3 +26,13 @@ class HomePageRefreshed extends HomeEvent with _$HomePageRefreshed {
 class UserLoadMore extends HomeEvent with _$UserLoadMore {
   const factory UserLoadMore() = _UserLoadMore;
 }
+
+@freezed
+class MessagesLoadMore extends HomeEvent with _$MessagesLoadMore {
+  const factory MessagesLoadMore() = _MessagesLoadMore;
+}
+
+@freezed
+class MessagesUpdated extends HomeEvent with _$MessagesUpdated {
+  const factory MessagesUpdated(Message message) = _MessagesUpdated;
+}

@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/services.dart';
 import 'package:shared/shared.dart';
 
 import '../../app.dart';
@@ -21,6 +22,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends BasePageState<HomePage, HomeBloc> {
   late final _pagingController = CommonPagingController<User>()..disposeBy(disposeBag);
+  late final _messagePagingController =
+      CommonPagingController<Message>()..disposeBy(disposeBag);
+  late final MethodChannel _channel;
 
   @override
   void initState() {
@@ -29,6 +33,25 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
     _pagingController.listen(
       onLoadMore: () => bloc.add(const UserLoadMore()),
     );
+    _messagePagingController.listen(
+      onLoadMore: () => bloc.add(const MessagesLoadMore()),
+    );
+    _channel = const MethodChannel('sync_channel');
+    _channel.setMethodCallHandler((call) async {
+      if (call.method == 'dataUpdated') {
+        final text = call.arguments as String?;
+        if (text != null) {
+          bloc.add(MessagesUpdated(Message(text: text)));
+        }
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _channel.setMethodCallHandler(null);
+    _messagePagingController.dispose();
+    super.dispose();
   }
 
   @override
@@ -48,6 +71,13 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
             _pagingController.error = state.loadUsersException;
           },
         ),
+        BlocListener<HomeBloc, HomeState>(
+          listenWhen: (previous, current) =>
+              previous.messages != current.messages,
+          listener: (context, state) {
+            _messagePagingController.appendLoadMoreOutput(state.messages);
+          },
+        ),
       ],
       child: child,
     );
@@ -60,7 +90,8 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
         child: BlocBuilder<HomeBloc, HomeState>(
           buildWhen: (previous, current) =>
               previous.users != current.users ||
-              previous.isShimmerLoading != current.isShimmerLoading,
+              previous.isShimmerLoading != current.isShimmerLoading ||
+              previous.messages != current.messages,
           builder: (context, state) {
             return RefreshIndicator(
               onRefresh: () {
@@ -71,38 +102,55 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
               },
               child: state.isShimmerLoading && state.users.data.isEmpty
                   ? const _ListViewLoader()
-                  : CommonPagedListView<User>(
-                      pagingController: _pagingController,
-                      itemBuilder: (context, user, index) {
-                        return Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: Dimens.d8.responsive(),
-                            vertical: Dimens.d4.responsive(),
-                          ),
-                          child: ShimmerLoading(
-                            isLoading: state.isShimmerLoading,
-                            loadingWidget: const _LoadingItem(),
-                            child: GestureDetector(
-                              onTap: () async {
-                                await navigator.push(AppRouteInfo.itemDetail(user));
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: AppColors.current.primaryColor,
-                                  borderRadius: BorderRadius.circular(Dimens.d8.responsive()),
-                                ),
-                                width: double.infinity,
-                                height: Dimens.d60.responsive(),
-                                child: Text(
-                                  user.email,
-                                  style: AppTextStyles.s14w400Primary(),
-                                ),
+                  : Column(
+                      children: [
+                        if (state.messages.data.isNotEmpty)
+                          SizedBox(
+                            height: Dimens.d120.responsive(),
+                            child: CommonPagedListView<Message>(
+                              pagingController: _messagePagingController,
+                              itemBuilder: (context, msg, index) => Padding(
+                                padding: EdgeInsets.all(Dimens.d4.responsive()),
+                                child: Text(msg.text, style: AppTextStyles.s14w400Primary()),
                               ),
                             ),
                           ),
-                        );
-                      },
+                        Expanded(
+                          child: CommonPagedListView<User>(
+                            pagingController: _pagingController,
+                            itemBuilder: (context, user, index) {
+                              return Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: Dimens.d8.responsive(),
+                                  vertical: Dimens.d4.responsive(),
+                                ),
+                                child: ShimmerLoading(
+                                  isLoading: state.isShimmerLoading,
+                                  loadingWidget: const _LoadingItem(),
+                                  child: GestureDetector(
+                                    onTap: () async {
+                                      await navigator.push(AppRouteInfo.itemDetail(user));
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: AppColors.current.primaryColor,
+                                        borderRadius: BorderRadius.circular(Dimens.d8.responsive()),
+                                      ),
+                                      width: double.infinity,
+                                      height: Dimens.d60.responsive(),
+                                      child: Text(
+                                        user.email,
+                                        style: AppTextStyles.s14w400Primary(),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
             );
           },
