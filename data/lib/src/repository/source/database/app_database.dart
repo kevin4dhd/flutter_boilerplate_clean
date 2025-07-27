@@ -45,12 +45,20 @@ class AppDatabase {
     return store.box<LocalMessageData>().put(message);
   }
 
-  PagedList<LocalMessageData> getMessages({required int page, required int limit}) {
+  PagedList<LocalMessageData> getMessages({
+    required int page,
+    required int limit,
+  }) {
     final box = store.box<LocalMessageData>();
     final query = box.query().build();
+
     final offset = (page - 1) * limit;
-    final items = query.find(offset: offset, limit: limit);
+    query.offset = offset;
+    query.limit = limit;
+
+    final items = query.find();
     query.close();
+
     final next = items.length < limit ? null : page + 1;
     return PagedList(
       data: items,

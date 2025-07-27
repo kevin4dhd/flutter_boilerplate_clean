@@ -90,9 +90,9 @@
         {
           "id": "6:2384161504073054878",
           "name": "avatarId",
-          "indexId": "1:130542291333754714",
           "type": 11,
           "flags": 520,
+          "indexId": "1:130542291333754714",
           "relationTarget": "LocalImageUrlData"
         }
       ],
