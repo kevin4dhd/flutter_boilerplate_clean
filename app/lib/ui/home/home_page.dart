@@ -21,9 +21,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends BasePageState<HomePage, HomeBloc> {
-  late final _pagingController = CommonPagingController<User>()..disposeBy(disposeBag);
-  late final _messagePagingController =
-      CommonPagingController<Message>()..disposeBy(disposeBag);
+  late final _pagingController = CommonPagingController<User>()
+    ..disposeBy(disposeBag);
+  late final _messagePagingController = CommonPagingController<Message>()
+    ..disposeBy(disposeBag);
   late final MethodChannel _channel;
 
   @override
@@ -58,7 +59,7 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
   Widget buildPageListeners({required Widget child}) {
     return MultiBlocListener(
       listeners: [
-        BlocListener<HomeBloc, HomeState>(
+        /*BlocListener<HomeBloc, HomeState>(
           listenWhen: (previous, current) => previous.users != current.users,
           listener: (context, state) {
             _pagingController.appendLoadMoreOutput(state.users);
@@ -70,7 +71,7 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
           listener: (context, state) {
             _pagingController.error = state.loadUsersException;
           },
-        ),
+        ),*/
         BlocListener<HomeBloc, HomeState>(
           listenWhen: (previous, current) =>
               previous.messages != current.messages,
@@ -111,7 +112,8 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
                               pagingController: _messagePagingController,
                               itemBuilder: (context, msg, index) => Padding(
                                 padding: EdgeInsets.all(Dimens.d4.responsive()),
-                                child: Text(msg.text, style: AppTextStyles.s14w400Primary()),
+                                child: Text(msg.text,
+                                    style: AppTextStyles.s14w400Primary()),
                               ),
                             ),
                           ),
@@ -129,13 +131,15 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
                                   loadingWidget: const _LoadingItem(),
                                   child: GestureDetector(
                                     onTap: () async {
-                                      await navigator.push(AppRouteInfo.itemDetail(user));
+                                      await navigator
+                                          .push(AppRouteInfo.itemDetail(user));
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
                                         color: AppColors.current.primaryColor,
-                                        borderRadius: BorderRadius.circular(Dimens.d8.responsive()),
+                                        borderRadius: BorderRadius.circular(
+                                            Dimens.d8.responsive()),
                                       ),
                                       width: double.infinity,
                                       height: Dimens.d60.responsive(),

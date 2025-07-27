@@ -1,5 +1,8 @@
 package jp.flutter.app
 
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.messaging.RemoteMessage
@@ -23,10 +26,15 @@ class MyFirebaseMessagingService : FlutterFirebaseMessagingService() {
         val entity = LocalMessageData(text = body)
         box.put(entity)
 
+        val total = box.count()
+        Log.d("MyFirebaseMessaging", "💾 Mensajes guardados en ObjectBox: $total")
+
         // Notificar a Flutter si la UI está activa
         FlutterEngineCache.getInstance().get("main")?.let { engine ->
-            MethodChannel(engine.dartExecutor.binaryMessenger, "sync_channel")
-                .invokeMethod("dataUpdated", body)
+            Handler(Looper.getMainLooper()).post {
+                MethodChannel(engine.dartExecutor.binaryMessenger, "sync_channel")
+                    .invokeMethod("dataUpdated", body)
+            }
         }
 
         // Muestra la notificación nativamente
@@ -35,6 +43,11 @@ class MyFirebaseMessagingService : FlutterFirebaseMessagingService() {
             .setContentText(body)
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setAutoCancel(true)
-        NotificationManagerCompat.from(this).notify(entity.id.toInt(), builder.build())
+        if (NotificationManagerCompat.from(this).areNotificationsEnabled()) {
+            NotificationManagerCompat.from(this).notify(entity.id.toInt(), builder.build())
+        } else {
+            // Opcional: puedes loguear o manejar la falta de permiso aquí
+            Log.w("MyFirebaseMessaging", "🔕 Notificaciones deshabilitadas por el usuario.")
+        }
     }
 }

@@ -5,6 +5,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.embedding.engine.FlutterEngineCache
+import jp.flutter.app.objectbox.ObjectBox
 
 class MainActivity : FlutterActivity() {
     private var methodChannel: MethodChannel? = null

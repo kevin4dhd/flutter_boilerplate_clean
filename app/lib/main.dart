@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:domain/domain.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:initializer/initializer.dart';
@@ -13,7 +14,7 @@ void main() => runZonedGuarded(_runMyApp, _reportError);
 
 Future<void> _runMyApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp();
   await AppInitializer(AppConfig.getInstance()).init();
   final initialResource = await _loadInitialResource();
   runApp(MyApp(initialResource: initialResource));
@@ -27,8 +28,9 @@ void _reportError(Object error, StackTrace stackTrace) {
 
 Future<LoadInitialResourceOutput> _loadInitialResource() async {
   final result = runCatching(
-    action: () =>
-        GetIt.instance.get<LoadInitialResourceUseCase>().execute(const LoadInitialResourceInput()),
+    action: () => GetIt.instance
+        .get<LoadInitialResourceUseCase>()
+        .execute(const LoadInitialResourceInput()),
   );
 
   return result.when(
