@@ -161,23 +161,25 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  int deleteAllUsersAndImageUrls() {
+  Future<int> deleteAllUsersAndImageUrls() {
     return _appDatabase.deleteAllUsersAndImageUrls();
   }
 
   @override
-  bool deleteImageUrl(int id) {
+  Future<bool> deleteImageUrl(int id) {
     return _appDatabase.deleteImageUrl(id);
   }
 
   @override
-  User? getLocalUser(int id) {
-    return _localUserDataMapper.mapToEntity(_appDatabase.getUser(id));
+  Future<User?> getLocalUser(int id) async {
+    final userData = await _appDatabase.getUser(id);
+    return _localUserDataMapper.mapToEntity(userData);
   }
 
   @override
-  List<User> getLocalUsers() {
-    return _localUserDataMapper.mapToListEntity(_appDatabase.getUsers());
+  Future<List<User>> getLocalUsers() async {
+    final users = await _appDatabase.getUsers();
+    return _localUserDataMapper.mapToListEntity(users);
   }
 
   @override
@@ -188,7 +190,7 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  int putLocalUser(User user) {
+  Future<int> putLocalUser(User user) {
     final userData = _localUserDataMapper.mapToData(user);
 
     return _appDatabase.putUser(userData);
@@ -208,7 +210,7 @@ class RepositoryImpl implements Repository {
     required int page,
     required int limit,
   }) async {
-    final paged = _appDatabase.getMessages(page: page, limit: limit);
+    final paged = await _appDatabase.getMessages(page: page, limit: limit);
     return PagedList(
       data: _localMessageDataMapper.mapToListEntity(paged.data),
       next: paged.next,

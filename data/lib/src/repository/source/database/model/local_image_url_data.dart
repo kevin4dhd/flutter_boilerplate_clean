@@ -1,20 +1,33 @@
-import 'package:objectbox/objectbox.dart';
-
-@Entity()
 class LocalImageUrlData {
   LocalImageUrlData({
+    this.id,
     this.origin,
     this.sm,
     this.md,
     this.lg,
   });
 
-  @Id()
   int? id;
   String? origin;
   String? sm;
   String? md;
   String? lg;
+
+  Map<String, Object?> toMap() => {
+        'id': id,
+        'origin': origin,
+        'sm': sm,
+        'md': md,
+        'lg': lg,
+      };
+
+  factory LocalImageUrlData.fromMap(Map<String, Object?> map) => LocalImageUrlData(
+        id: map['id'] as int?,
+        origin: map['origin'] as String?,
+        sm: map['sm'] as String?,
+        md: map['md'] as String?,
+        lg: map['lg'] as String?,
+      );
 
   @override
   int get hashCode {
@@ -23,7 +36,7 @@ class LocalImageUrlData {
 
   @override
   String toString() {
-    return 'LocalImageUrlData(id: $id, origin: $origin, sm: $sm, md: $md, lg: $lg)';
+    return 'LocalImageUrlData(id: \$id, origin: \$origin, sm: \$sm, md: \$md, lg: \$lg)';
   }
 
   @override

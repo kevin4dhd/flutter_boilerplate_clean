@@ -5,7 +5,8 @@ import 'package:shared/shared.dart';
 import '../../../../../data.dart';
 
 @Injectable()
-class LocalUserDataMapper extends BaseDataMapper<LocalUserData, User> with DataMapperMixin {
+class LocalUserDataMapper extends BaseDataMapper<LocalUserData, User>
+    with DataMapperMixin {
   LocalUserDataMapper(
     this._genderDataMapper,
     this._localImageUrlDataMapper,
@@ -23,7 +24,7 @@ class LocalUserDataMapper extends BaseDataMapper<LocalUserData, User> with DataM
       birthday: data?.birthday != null
           ? DateTime.fromMillisecondsSinceEpoch(data!.birthday!)
           : User.defaultBirthday,
-      avatar: _localImageUrlDataMapper.mapToEntity(data?.avatar.target),
+      avatar: _localImageUrlDataMapper.mapToEntity(data?.avatar),
       photos: _localImageUrlDataMapper.mapToListEntity(data?.photos),
       gender: _genderDataMapper.mapToEntity(data?.gender),
     );
@@ -36,8 +37,8 @@ class LocalUserDataMapper extends BaseDataMapper<LocalUserData, User> with DataM
       money: entity.money.toString(),
       birthday: entity.birthday?.millisecondsSinceEpoch,
       gender: _genderDataMapper.mapToData(entity.gender),
-    )
-      ..avatar.target = _localImageUrlDataMapper.mapToData(entity.avatar)
-      ..photos.addAll(_localImageUrlDataMapper.mapToListData(entity.photos));
+      avatar: _localImageUrlDataMapper.mapToData(entity.avatar),
+      photos: _localImageUrlDataMapper.mapToListData(entity.photos),
+    );
   }
 }

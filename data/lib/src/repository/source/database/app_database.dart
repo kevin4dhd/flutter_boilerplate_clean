@@ -1,69 +1,114 @@
+import 'dart:async';
+
 import 'package:injectable/injectable.dart';
-import 'package:objectbox/objectbox.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:domain/domain.dart';
 
 import '../../../../data.dart';
 import 'model/local_message_data.dart';
-import 'package:domain/domain.dart';
 
 @LazySingleton()
 class AppDatabase {
-  AppDatabase(this.store);
+  AppDatabase(this.database);
 
-  final Store store;
+  final Database database;
+  final _userStreamController =
+      StreamController<List<LocalUserData>>.broadcast();
 
-  int putUser(LocalUserData user) {
-    return store.box<LocalUserData>().put(user);
+  Future<int> putUser(LocalUserData user) async {
+    final id = await database.insert('user', user.toMap());
+    user.id = id;
+    if (user.avatar != null) {
+      await database.insert('image_url', {
+        ...user.avatar!.toMap(),
+        'user_id': id,
+        'is_avatar': 1,
+      });
+    }
+    for (final photo in user.photos) {
+      await database.insert('image_url', {
+        ...photo.toMap(),
+        'user_id': id,
+        'is_avatar': 0,
+      });
+    }
+    await _notifyUsersUpdated();
+    return id;
   }
 
-  Stream<List<LocalUserData>> getUsersStream() {
-    return store
-        .box<LocalUserData>()
-        .query()
-        .watch(triggerImmediately: true)
-        .map((query) => query.find());
+  Stream<List<LocalUserData>> getUsersStream() => _userStreamController.stream;
+
+  Future<List<LocalUserData>> getUsers() async {
+    final users = <LocalUserData>[];
+    final maps = await database.query('user');
+    for (final map in maps) {
+      final id = map['id'] as int;
+      final avatarMaps = await database.query('image_url',
+          where: 'user_id=? AND is_avatar=1', whereArgs: [id]);
+      final photoMaps = await database.query('image_url',
+          where: 'user_id=? AND is_avatar=0', whereArgs: [id]);
+      users.add(LocalUserData.fromMap(map,
+          avatar: avatarMaps.isNotEmpty
+              ? LocalImageUrlData.fromMap(avatarMaps.first)
+              : null,
+          photos:
+              photoMaps.map((e) => LocalImageUrlData.fromMap(e)).toList()));
+    }
+    return users;
   }
 
-  List<LocalUserData> getUsers() {
-    return store.box<LocalUserData>().getAll();
+  Future<LocalUserData?> getUser(int id) async {
+    final maps = await database.query('user', where: 'id=?', whereArgs: [id]);
+    if (maps.isEmpty) return null;
+    final avatarMaps = await database.query('image_url',
+        where: 'user_id=? AND is_avatar=1', whereArgs: [id]);
+    final photoMaps = await database.query('image_url',
+        where: 'user_id=? AND is_avatar=0', whereArgs: [id]);
+    return LocalUserData.fromMap(maps.first,
+        avatar: avatarMaps.isNotEmpty
+            ? LocalImageUrlData.fromMap(avatarMaps.first)
+            : null,
+        photos: photoMaps.map((e) => LocalImageUrlData.fromMap(e)).toList());
   }
 
-  LocalUserData? getUser(int id) {
-    return store.box<LocalUserData>().get(id);
+  Future<bool> deleteImageUrl(int id) async {
+    final count =
+        await database.delete('image_url', where: 'id=?', whereArgs: [id]);
+    await _notifyUsersUpdated();
+    return count > 0;
   }
 
-  bool deleteImageUrl(int id) {
-    return store.box<LocalImageUrlData>().remove(id);
+  Future<int> deleteAllUsersAndImageUrls() async {
+    await database.delete('image_url');
+    final count = await database.delete('user');
+    await _notifyUsersUpdated();
+    return count;
   }
 
-  int deleteAllUsersAndImageUrls() {
-    store.box<LocalImageUrlData>().removeAll();
-
-    return store.box<LocalUserData>().removeAll();
+  Future<int> putMessage(LocalMessageData message) async {
+    final id = await database.insert('message', message.toMap());
+    message.id = id;
+    return id;
   }
 
-  int putMessage(LocalMessageData message) {
-    return store.box<LocalMessageData>().put(message);
-  }
-
-  PagedList<LocalMessageData> getMessages({
+  Future<PagedList<LocalMessageData>> getMessages({
     required int page,
     required int limit,
-  }) {
-    final box = store.box<LocalMessageData>();
-    final query = box.query().build();
-
+  }) async {
     final offset = (page - 1) * limit;
-    query.offset = offset;
-    query.limit = limit;
-
-    final items = query.find();
-    query.close();
-
+    final maps =
+        await database.query('message', limit: limit, offset: offset);
+    final items = maps.map(LocalMessageData.fromMap).toList();
     final next = items.length < limit ? null : page + 1;
     return PagedList(
       data: items,
       next: next,
       offset: offset,
     );
+  }
+
+  Future<void> _notifyUsersUpdated() async {
+    final users = await getUsers();
+    _userStreamController.add(users);
   }
 }

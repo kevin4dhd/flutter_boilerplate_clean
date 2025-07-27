@@ -36,7 +36,6 @@ end
 
 target 'NotificationService' do
   use_frameworks!
-  pod 'ObjectBox'
 end
 
 post_install do |installer|

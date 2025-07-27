@@ -41,9 +41,8 @@ dependencies:
       path: packages/graphql_flutter
   injectable: 2.5.0
   json_annotation: 4.9.0
-  objectbox: 4.3.0
-  objectbox_flutter_libs: 4.3.0
   path_provider: 2.1.2
+  sqflite: 2.4.2
   rxdart: 0.27.7
   shared:
     path: ../shared
@@ -63,7 +62,3 @@ dev_dependencies:
   mocktail: 1.0.3
   nals_lints:
     path: ../nals_lints
-  objectbox_generator: 4.3.0
-
-objectbox:
-  output_dir: src/repository/source/database/generated

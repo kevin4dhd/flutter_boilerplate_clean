@@ -2,20 +2,12 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("dev.flutter.flutter-gradle-plugin")
-    id("io.objectbox")
     id("com.google.gms.google-services")
 }
-
-/*objectbox {
-    modelDirectory.set(file("../../../shared"))
-}*/
 
 /*kotlin {
     jvmToolchain(17)
 }*/
-
-val modelPath = "$projectDir/../../../data/lib/src/repository/source/database/generated/objectbox-model.json"
-println("👉 ObjectBox model path = $modelPath")
 
 android {
     namespace = "jp.flutter.app"
@@ -42,12 +34,6 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments["objectbox.modelPath"] = modelPath
-                arguments["objectbox.debug"] = "true"
-            }
-        }
     }
 
     buildTypes {

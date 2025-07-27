@@ -95,9 +95,6 @@ meta: 1.9.1
 mime: 1.0.1
 mocktail: 0.3.0
 modal_bottom_sheet: 2.0.1
-objectbox: 4.3.0
-objectbox_flutter_libs: 4.3.0
-objectbox_generator: 4.3.0
 ogp_data_extract: 0.1.2
 optimized_cached_image: 3.0.0
 package_info_plus: 8.3.0
@@ -109,7 +106,7 @@ pull_to_refresh_flutter3: 2.0.1
 rxdart: 0.27.7
 sliding_up_panel: 2.0.0+1
 smooth_page_indicator: 1.0.0+2
-sqflite: 2.0.2+1
+sqflite: 2.4.2
 store_redirect: 2.0.1
 syncfusion_flutter_charts: 20.2.45
 table_calendar: 3.0.7
