@@ -2,24 +2,26 @@ package jp.flutter.app.objectbox
 
 import android.content.Context
 import io.objectbox.BoxStore
-import io.objectbox.android.AndroidObjectBrowser
 import jp.flutter.app.DatabaseConstants
 import jp.flutter.app.MyObjectBox
-import io.objectbox.android.BuildConfig as ObjBuildConfig
+import android.util.Log
+import java.io.File
 
 object ObjectBox {
     lateinit var store: BoxStore
         private set
 
     fun init(context: Context) {
+        val flutterDir = File(context.filesDir.parentFile, "app_flutter")
+        if (!flutterDir.exists()) {
+            flutterDir.mkdirs()
+        }
+        val dbPath = flutterDir.resolve(DatabaseConstants.DATABASE_NAME)
+        Log.d("ObjectBox DB", "Unified database path: $dbPath")
         store = MyObjectBox.builder()
             .androidContext(context.applicationContext)
-            .directory(context.filesDir.resolve(DatabaseConstants.DATABASE_NAME))
+            .directory(dbPath)
             .build()
-
-        if (ObjBuildConfig.DEBUG) {
-            AndroidObjectBrowser(store).start(context.applicationContext)
-        }
     }
 
     fun get(): ObjectBox = this

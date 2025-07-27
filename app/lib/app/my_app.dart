@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -29,6 +30,12 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
   void initState() {
     super.initState();
     bloc.add(const AppInitiated());
+    test();
+  }
+
+  test() async {
+    String? token = await FirebaseMessaging.instance.getToken();
+    print("token $token");
   }
 
   @override

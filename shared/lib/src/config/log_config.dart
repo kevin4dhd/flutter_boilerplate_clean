@@ -28,13 +28,13 @@ class LogConfig {
   static const logOnStreamCancel = false;
 
   /// log interceptor
-  static const enableLogInterceptor = kDebugMode;
-  static const enableLogRequestInfo = kDebugMode;
-  static const enableLogSuccessResponse = kDebugMode;
-  static const enableLogErrorResponse = kDebugMode;
+  static const enableLogInterceptor = false;
+  static const enableLogRequestInfo = false;
+  static const enableLogSuccessResponse = false;
+  static const enableLogErrorResponse = false;
 
   /// enable log usecase
-  static const enableLogUseCaseInput = kDebugMode;
-  static const enableLogUseCaseOutput = kDebugMode;
-  static const enableLogUseCaseError = kDebugMode;
+  static const enableLogUseCaseInput = false;
+  static const enableLogUseCaseOutput = false;
+  static const enableLogUseCaseError = false;
 }

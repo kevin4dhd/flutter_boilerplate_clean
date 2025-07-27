@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "675287102966",
+    "project_id": "flutter-clean-boilerplate",
+    "storage_bucket": "flutter-clean-boilerplate.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675287102966:android:bce20f683bf6ce1db043d7",
+        "android_client_info": {
+          "package_name": "jp.flutter.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa0QGI8EaL3ZRcW2yiqdWdiTft8txhjl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

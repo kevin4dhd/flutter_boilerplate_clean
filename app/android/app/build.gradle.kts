@@ -1,15 +1,21 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("com.google.gms.google-services")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
     id("io.objectbox")
+    id("com.google.gms.google-services")
 }
 
-objectbox {
+/*objectbox {
     modelDirectory.set(file("../../../shared"))
-}
+}*/
+
+/*kotlin {
+    jvmToolchain(17)
+}*/
+
+val modelPath = "$projectDir/../../../data/lib/src/repository/source/database/generated/objectbox-model.json"
+println("👉 ObjectBox model path = $modelPath")
 
 android {
     namespace = "jp.flutter.app"
@@ -17,13 +23,13 @@ android {
     ndkVersion = "27.0.12077973"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
         isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
@@ -35,6 +41,13 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["objectbox.modelPath"] = modelPath
+                arguments["objectbox.debug"] = "true"
+            }
+        }
     }
 
     buildTypes {
@@ -51,7 +64,7 @@ flutter {
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
-    implementation("com.google.firebase:firebase-messaging:24.0.0")
-    implementation("io.objectbox:objectbox-android:3.8.1")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+    implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
+    implementation("com.google.firebase:firebase-messaging")
 }
