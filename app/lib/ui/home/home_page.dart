@@ -23,7 +23,6 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
   late final _pagingController = CommonPagingController<User>()
     ..disposeBy(disposeBag);
 
-
   @override
   void initState() {
     super.initState();
@@ -42,7 +41,7 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
   Widget buildPageListeners({required Widget child}) {
     return MultiBlocListener(
       listeners: [
-        /*BlocListener<HomeBloc, HomeState>(
+        BlocListener<HomeBloc, HomeState>(
           listenWhen: (previous, current) => previous.users != current.users,
           listener: (context, state) {
             _pagingController.appendLoadMoreOutput(state.users);
@@ -54,7 +53,7 @@ class _HomePageState extends BasePageState<HomePage, HomeBloc> {
           listener: (context, state) {
             _pagingController.error = state.loadUsersException;
           },
-        ),*/
+        ),
       ],
       child: child,
     );

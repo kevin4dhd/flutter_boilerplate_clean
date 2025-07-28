@@ -33,9 +33,10 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
     test();
   }
 
-  test() async {
-    String? token = await FirebaseMessaging.instance.getToken();
-    print("token $token");
+  Future<void> test() async {
+    final String? token = await FirebaseMessaging.instance.getToken();
+    // ignore: avoid_print
+    print('token $token');
   }
 
   @override

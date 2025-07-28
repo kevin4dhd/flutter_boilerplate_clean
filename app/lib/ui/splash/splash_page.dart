@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared/shared.dart';
 
 import '../../app.dart';
-import 'package:shared/shared.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'bloc/splash.dart';
 
 @RoutePage()

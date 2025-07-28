@@ -26,4 +26,3 @@ class HomePageRefreshed extends HomeEvent with _$HomePageRefreshed {
 class UserLoadMore extends HomeEvent with _$UserLoadMore {
   const factory UserLoadMore() = _UserLoadMore;
 }
-

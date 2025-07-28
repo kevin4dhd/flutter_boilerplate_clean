@@ -1,6 +1,9 @@
 package jp.flutter.app
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.ContentValues
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
@@ -15,6 +18,8 @@ import jp.flutter.app.sqlite.DatabaseHelper
 class MyFirebaseMessagingService : FlutterFirebaseMessagingService() {
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
+
+        createNotificationChannel()
 
         val body = message.data["encryptedBody"] ?: message.notification?.body
 
@@ -47,6 +52,21 @@ class MyFirebaseMessagingService : FlutterFirebaseMessagingService() {
             NotificationManagerCompat.from(this).notify(id.toInt(), builder.build())
         } else {
             Log.w("MyFirebaseMessaging", "🔕 Notificaciones deshabilitadas por el usuario.")
+        }
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "Mensajes"
+            val descriptionText = "Canal para notificaciones de mensajes"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("default", name, importance).apply {
+                description = descriptionText
+            }
+
+            val notificationManager: NotificationManager =
+                getSystemService(NotificationManager::class.java)
+            notificationManager.createNotificationChannel(channel)
         }
     }
 }
