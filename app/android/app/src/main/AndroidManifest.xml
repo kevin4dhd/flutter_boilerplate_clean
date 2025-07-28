@@ -60,6 +60,10 @@
             </intent-filter>
         </service>
 
+        <receiver
+            android:name=".NotificationReplyReceiver"
+            android:exported="false" />
+
         <!-- <meta-data
             android:name="com.secret.sdk"
             android:value="${apiKey}" /> -->
