@@ -7,5 +7,8 @@ class Message with _$Message {
   const factory Message({
     @Default(0) int id,
     @Default('') String text,
+    @Default(Message.defaultCreatedAt) DateTime? createdAt,
   }) = _Message;
+
+  static const DateTime? defaultCreatedAt = null;
 }

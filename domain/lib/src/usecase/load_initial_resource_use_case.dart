@@ -6,11 +6,9 @@ import '../../domain.dart';
 part 'load_initial_resource_use_case.freezed.dart';
 
 @Injectable()
-class LoadInitialResourceUseCase
-    extends BaseSyncUseCase<LoadInitialResourceInput, LoadInitialResourceOutput> {
-  const LoadInitialResourceUseCase(this._repository);
-
-  final Repository _repository;
+class LoadInitialResourceUseCase extends BaseSyncUseCase<
+    LoadInitialResourceInput, LoadInitialResourceOutput> {
+  const LoadInitialResourceUseCase();
 
   @protected
   @override
@@ -22,12 +20,14 @@ class LoadInitialResourceUseCase
 }
 
 @freezed
-class LoadInitialResourceInput extends BaseInput with _$LoadInitialResourceInput {
+class LoadInitialResourceInput extends BaseInput
+    with _$LoadInitialResourceInput {
   const factory LoadInitialResourceInput() = _LoadInitialResourceInput;
 }
 
 @freezed
-class LoadInitialResourceOutput extends BaseOutput with _$LoadInitialResourceOutput {
+class LoadInitialResourceOutput extends BaseOutput
+    with _$LoadInitialResourceOutput {
   const LoadInitialResourceOutput._();
 
   const factory LoadInitialResourceOutput({

@@ -11,7 +11,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
     context,
     getDatabasePath(context),
     null,
-    1
+    2
 ) {
     companion object {
         private fun getDatabasePath(context: Context): String {
@@ -33,11 +33,13 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
             "CREATE TABLE image_url(id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, origin TEXT, sm TEXT, md TEXT, lg TEXT, is_avatar INTEGER)"
         )
         db.execSQL(
-            "CREATE TABLE message(id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT)"
+            "CREATE TABLE message(id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, created_at INTEGER)"
         )
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // handle migration if needed
+        if (oldVersion < 2) {
+            db.execSQL("ALTER TABLE message ADD COLUMN created_at INTEGER")
+        }
     }
 }

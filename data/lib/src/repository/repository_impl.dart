@@ -3,7 +3,6 @@ import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data.dart';
-import 'source/database/mapper/local_message_data_mapper.dart';
 
 @LazySingleton(as: Repository)
 class RepositoryImpl implements Repository {
@@ -26,7 +25,8 @@ class RepositoryImpl implements Repository {
   final LanguageCodeDataMapper _languageCodeDataMapper;
   final GenderDataMapper _genderDataMapper;
   final LocalUserDataMapper _localUserDataMapper;
-  final LocalMessageDataMapper _localMessageDataMapper = LocalMessageDataMapper();
+  final LocalMessageDataMapper _localMessageDataMapper =
+      LocalMessageDataMapper();
 
   @override
   bool get isLoggedIn => _appPreferences.isLoggedIn;

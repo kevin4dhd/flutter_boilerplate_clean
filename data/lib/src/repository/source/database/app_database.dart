@@ -1,11 +1,9 @@
 import 'dart:async';
 
+import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:domain/domain.dart';
-
 import '../../../../data.dart';
-import 'model/local_message_data.dart';
 
 @LazySingleton()
 class AppDatabase {
@@ -51,15 +49,16 @@ class AppDatabase {
           avatar: avatarMaps.isNotEmpty
               ? LocalImageUrlData.fromMap(avatarMaps.first)
               : null,
-          photos:
-              photoMaps.map((e) => LocalImageUrlData.fromMap(e)).toList()));
+          photos: photoMaps.map((e) => LocalImageUrlData.fromMap(e)).toList()));
     }
     return users;
   }
 
   Future<LocalUserData?> getUser(int id) async {
     final maps = await database.query('user', where: 'id=?', whereArgs: [id]);
-    if (maps.isEmpty) return null;
+    if (maps.isEmpty) {
+      return null;
+    }
     final avatarMaps = await database.query('image_url',
         where: 'user_id=? AND is_avatar=1', whereArgs: [id]);
     final photoMaps = await database.query('image_url',
@@ -96,8 +95,12 @@ class AppDatabase {
     required int limit,
   }) async {
     final offset = (page - 1) * limit;
-    final maps =
-        await database.query('message', limit: limit, offset: offset);
+    final maps = await database.query(
+      'message',
+      limit: limit,
+      offset: offset,
+      orderBy: 'created_at DESC',
+    );
     final items = maps.map(LocalMessageData.fromMap).toList();
     final next = items.length < limit ? null : page + 1;
     return PagedList(

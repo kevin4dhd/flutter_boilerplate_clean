@@ -1,4 +1,5 @@
 import UserNotifications
+import Flutter
 
 class NotificationService: UNNotificationServiceExtension {
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
@@ -8,6 +9,13 @@ class NotificationService: UNNotificationServiceExtension {
         }
 
         SqliteHelper.insertMessage(bestAttemptContent.body)
+
+        if let engine = FlutterEngineCache.default().engine(for: "main") {
+            DispatchQueue.main.async {
+                FlutterMethodChannel(name: "sync_channel", binaryMessenger: engine.binaryMessenger)
+                    .invokeMethod("dataUpdated", arguments: bestAttemptContent.body)
+            }
+        }
 
         contentHandler(bestAttemptContent)
     }
