@@ -96,8 +96,12 @@ class AppDatabase {
     required int limit,
   }) async {
     final offset = (page - 1) * limit;
-    final maps =
-        await database.query('message', limit: limit, offset: offset);
+    final maps = await database.query(
+      'message',
+      limit: limit,
+      offset: offset,
+      orderBy: 'created_at DESC',
+    );
     final items = maps.map(LocalMessageData.fromMap).toList();
     final next = items.length < limit ? null : page + 1;
     return PagedList(

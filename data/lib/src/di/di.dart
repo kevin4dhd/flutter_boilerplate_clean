@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared/shared.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
+import 'repository/source/database/migration/migration_v2.dart';
 
 import 'di.config.dart';
 
@@ -22,7 +23,7 @@ abstract class ServiceModule {
     print('SQLite DB Path: $path');
     return openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: (db, version) async {
         await db.execute("CREATE TABLE user(\n"
             "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
@@ -42,8 +43,12 @@ abstract class ServiceModule {
             ")");
         await db.execute("CREATE TABLE message(\n"
             "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
-            "text TEXT\n"
+            "text TEXT,\n"
+            "created_at INTEGER\n"
             ")");
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        await migrateV2(db, oldVersion);
       },
     );
   }

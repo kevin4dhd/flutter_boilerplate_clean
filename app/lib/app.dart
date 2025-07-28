@@ -59,6 +59,7 @@ export 'resource/styles/app_themes.dart';
 export 'shared_view/app_text_field.dart';
 export 'ui/home/home_page.dart';
 export 'ui/item_detail/item_detail_page.dart';
+export 'ui/messages/messages_page.dart';
 export 'ui/splash/splash_page.dart';
 export 'ui/login/login_page.dart';
 export 'ui/main/main_page.dart';

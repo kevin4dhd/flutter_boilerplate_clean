@@ -19,7 +19,10 @@ class MyFirebaseMessagingService : FlutterFirebaseMessagingService() {
         val body = message.data["encryptedBody"] ?: message.notification?.body
 
         val db = DatabaseHelper(this).writableDatabase
-        val values = ContentValues().apply { put("text", body) }
+        val values = ContentValues().apply {
+            put("text", body)
+            put("created_at", System.currentTimeMillis())
+        }
         val id = db.insert("message", null, values)
 
         val cursor = db.rawQuery("SELECT COUNT(*) FROM message", null)
