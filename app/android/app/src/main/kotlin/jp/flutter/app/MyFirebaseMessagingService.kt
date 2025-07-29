@@ -48,6 +48,7 @@ class MyFirebaseMessagingService : FlutterFirebaseMessagingService() {
 
         val replyIntent = Intent(this, NotificationReplyReceiver::class.java).apply {
             action = NotificationReplyReceiver.ACTION_REPLY
+            putExtra("notificationId", id.toInt())
         }
         val replyPendingIntent = PendingIntent.getBroadcast(
             this,

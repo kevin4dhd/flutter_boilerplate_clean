@@ -38,7 +38,7 @@ class NotificationReplyReceiver : BroadcastReceiver() {
                     .setSmallIcon(android.R.drawable.ic_dialog_info)
                     .setContentText(message)
                     .setAutoCancel(true)
-                val notificationId = id.toInt()
+                val notificationId = intent.getIntExtra("notificationId", -1)
                 if (NotificationManagerCompat.from(context).areNotificationsEnabled()) {
                     NotificationManagerCompat.from(context).notify(notificationId, confirmBuilder.build())
                 }
