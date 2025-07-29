@@ -209,3 +209,13 @@ scripts:
   check_unused_l10n_domain:
     run: dart pub global run melos exec --fail-fast --scope="*domain*" "flutter pub run dart_code_metrics:metrics check-unused-l10n lib -p ^S$"
     description: check unused l10n domain.
+
+  pub_get_initializer:
+    run: |
+      cd initializer && flutter pub get && cd ..
+    description: Run pub get on initializer module.
+
+  pub_get_nals_lints:
+    run: |
+      cd nals_lints && flutter pub get && cd ..
+    description: Run pub get on nals_lints module.

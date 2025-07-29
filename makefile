@@ -90,6 +90,8 @@ sync:
 	@melos bootstrap
 	@melos run l10n
 	@melos run force_build_all
+	@melos run pub_get_initializer
+	@melos run pub_get_nals_lints
 
 build_all:
 	@melos run build_all
