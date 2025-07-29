@@ -98,6 +98,15 @@ export PATH="$PATH:~/.gem/gems/lefthook-0.7.7/bin"
 - Run `lefthook install` (optional)
 - Run & Enjoy!
 
+
+> ℹ️ **Note:**  
+> If you encounter any errors during setup, try running:
+>
+> ```bash
+> cd initializer && flutter pub get && cd ..
+> cd nals_lints && flutter pub get && cd ..
+> ```
+
 ## Upgrade Flutter
 - Update Flutter version in:
     - [README.md](#requirements)
