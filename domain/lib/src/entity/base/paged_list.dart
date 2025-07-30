@@ -20,6 +20,7 @@ class PagedList<T> with _$PagedList<T> {
   bool get isLastPage => data.isEmpty || next == null;
 
   LoadMoreOutput<T> toLoadMoreOutput() {
-    return LoadMoreOutput(data: data, otherData: otherData, isLastPage: isLastPage);
+    return LoadMoreOutput(
+        data: data, otherData: otherData, isLastPage: isLastPage);
   }
 }

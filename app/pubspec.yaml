@@ -79,7 +79,26 @@ flutter:
   generate: false
   assets:
     - assets/images/
-#  fonts:
+    - assets/svg/
+  fonts:
+    - family: nunitosans
+      fonts:
+        - asset: assets/fonts/NunitoSans_10pt-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/NunitoSans_10pt-ExtraBold.ttf
+        - asset: assets/fonts/NunitoSans_7pt-Light.ttf
+          weight: 200
+        - asset: assets/fonts/NunitoSans_10pt-SemiBold.ttf
+        - asset: assets/fonts/NunitoSans_10pt-Medium.ttf
+        - asset: assets/fonts/NunitoSans_10pt-Bold.ttf
+          weight: 800
+    - family: ntr
+      fonts:
+        - asset: assets/fonts/NTR-Regular.ttf
+          weight: 400
+    - family: NotoColorEmoji
+      fonts:
+        - asset: assets/fonts/NotoColorEmoji-Regular.ttf
 #    - family: Muli
 #      fonts:
 #        - asset: assets/fonts/Muli-Bold.ttf

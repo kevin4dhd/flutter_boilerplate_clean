@@ -79,8 +79,8 @@ class CommonDialog extends StatelessWidget {
               onPressed: e.onPressed?.function,
               child: Text(
                 e.text ?? S.current.ok,
-                style:
-                    e.isDefault ? AppTextStyles.s14w400Secondary() : AppTextStyles.s14w400Primary(),
+                // style:
+                //     e.isDefault ? AppTextStyles.s14w400Secondary() : AppTextStyles.s14w400Primary(),
               ),
             ),
           )
@@ -88,13 +88,13 @@ class CommonDialog extends StatelessWidget {
       title: title != null
           ? Text(
               title ?? '',
-              style: AppTextStyles.s14w400Primary(),
+              // style: AppTextStyles.s14w400Primary(),
             )
           : null,
       content: message != null
           ? Text(
               message ?? '',
-              style: AppTextStyles.s14w400Primary(),
+              // style: AppTextStyles.s14w400Primary(),
             )
           : null,
     );
@@ -107,22 +107,22 @@ class CommonDialog extends StatelessWidget {
                 onPressed: e.onPressed?.function,
                 child: Text(
                   e.text ?? S.current.ok,
-                  style: e.isDefault
-                      ? AppTextStyles.s14w400Secondary()
-                      : AppTextStyles.s14w400Primary(),
+                  // style: e.isDefault
+                  //     ? AppTextStyles.s14w400Secondary()
+                  //     : AppTextStyles.s14w400Primary(),
                 ),
               ))
           .toList(growable: false),
       title: title != null
           ? Text(
               title ?? '',
-              style: AppTextStyles.s14w400Primary(),
+              // style: AppTextStyles.s14w400Primary(),
             )
           : null,
       content: message != null
           ? Text(
               message ?? '',
-              style: AppTextStyles.s14w400Primary(),
+              // style: AppTextStyles.s14w400Primary(),
             )
           : null,
     );

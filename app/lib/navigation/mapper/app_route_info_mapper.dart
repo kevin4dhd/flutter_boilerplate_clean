@@ -9,6 +9,7 @@ class AppRouteInfoMapper extends BaseRouteInfoMapper {
   @override
   PageRouteInfo map(AppRouteInfo appRouteInfo) {
     return appRouteInfo.when(
+      splash: () => const SplashRoute(),
       login: () => const LoginRoute(),
       main: () => const MainRoute(),
       itemDetail: (user) => ItemDetailRoute(user: user),

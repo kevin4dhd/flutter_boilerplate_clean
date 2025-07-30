@@ -20,14 +20,15 @@ class ItemDetailPage extends StatefulWidget {
   }
 }
 
-class _ItemDetailPageState extends BasePageState<ItemDetailPage, ItemDetailBloc> {
+class _ItemDetailPageState
+    extends BasePageState<ItemDetailPage, ItemDetailBloc> {
   @override
   Widget buildPage(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Text(
           widget.user.toString(),
-          style: AppTextStyles.s14w400Primary(),
+          // style: AppTextStyles.s14w400Primary(),
         ),
       ),
     );

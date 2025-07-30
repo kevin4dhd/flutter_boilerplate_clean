@@ -32,7 +32,7 @@ class _MyPagePageState extends BasePageState<MyPagePage, MyPageBloc> {
                   return SwitchListTile.adaptive(
                     title: Text(
                       S.current.darkTheme,
-                      style: AppTextStyles.s14w400Primary(),
+                      // style: AppTextStyles.s14w400Primary(),
                     ),
                     tileColor: AppColors.current.primaryColor,
                     value: state.isDarkTheme,
@@ -60,10 +60,6 @@ class _MyPagePageState extends BasePageState<MyPagePage, MyPageBloc> {
                         child: Text(S.current.english),
                       ),
                       DropdownMenuItem(
-                        value: LanguageCode.ja,
-                        child: Text(S.current.japanese),
-                      ),
-                      DropdownMenuItem(
                         value: LanguageCode.es,
                         child: Text(S.current.spanish),
                       ),
@@ -80,7 +76,7 @@ class _MyPagePageState extends BasePageState<MyPagePage, MyPageBloc> {
                 ),
                 child: Text(
                   S.current.logout,
-                  style: AppTextStyles.s14w400Primary(),
+                  // style: AppTextStyles.s14w400Primary(),
                 ),
               ),
             ],
