@@ -31,7 +31,7 @@ class _SearchPageState extends BasePageState<SearchPage, SearchBloc> {
           },
           child: Text(
             S.current.login,
-            style: AppTextStyles.s14w400Primary(),
+            // style: AppTextStyles.s14w400Primary(),
           ),
         ),
       ),

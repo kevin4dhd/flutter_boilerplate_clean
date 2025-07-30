@@ -4,7 +4,11 @@ import '../../app.dart';
 
 /// define custom themes here
 final lightTheme = ThemeData(
-  brightness: Brightness.light,
+  scaffoldBackgroundColor: AppColors.defaultAppColor.primaryColor,
+  appBarTheme: AppBarTheme(
+    backgroundColor: AppColors.darkThemeColor.primaryColor,
+  ),
+  brightness: Brightness.dark,
   splashColor: Colors.transparent,
 )..addAppColor(
     AppThemeType.light,
@@ -12,6 +16,10 @@ final lightTheme = ThemeData(
   );
 
 final darkTheme = ThemeData(
+  scaffoldBackgroundColor: AppColors.darkThemeColor.primaryColor,
+  appBarTheme: AppBarTheme(
+    backgroundColor: AppColors.darkThemeColor.primaryColor,
+  ),
   brightness: Brightness.dark,
   splashColor: Colors.transparent,
 )..addAppColor(
@@ -29,7 +37,8 @@ extension ThemeDataExtensions on ThemeData {
   }
 
   AppColors get appColor {
-    return _appColorMap[AppThemeSetting.currentAppThemeType] ?? AppColors.defaultAppColor;
+    return _appColorMap[AppThemeSetting.currentAppThemeType] ??
+        AppColors.defaultAppColor;
   }
 }
 

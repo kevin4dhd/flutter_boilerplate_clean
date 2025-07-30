@@ -30,7 +30,7 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
         centerTitle: true,
         text: S.current.login,
         backgroundColor: AppColors.current.primaryColor,
-        titleTextStyle: AppTextStyles.s14w400Primary(),
+        // titleTextStyle: AppTextStyles.s14w400Primary(),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -58,7 +58,7 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
                     previous.onPageError != current.onPageError,
                 builder: (_, state) => Text(
                   state.onPageError,
-                  style: AppTextStyles.s14w400Secondary(),
+                  // style: AppTextStyles.s14w400Secondary(),
                 ),
               ),
               BlocBuilder<LoginBloc, LoginState>(
@@ -79,7 +79,7 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
                     ),
                     child: Text(
                       S.current.login,
-                      style: AppTextStyles.s14w400Primary(),
+                      // style: AppTextStyles.s14w400Primary(),
                     ),
                   );
                 },
@@ -93,7 +93,7 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
                 ),
                 child: Text(
                   S.current.fakeLogin,
-                  style: AppTextStyles.s14w400Primary(),
+                  // style: AppTextStyles.s14w400Primary(),
                 ),
               ),
             ],

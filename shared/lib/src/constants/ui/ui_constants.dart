@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class UiConstants {
@@ -26,9 +27,8 @@ class UiConstants {
 
   /// status bar color
   static const systemUiOverlay = SystemUiOverlayStyle(
-    statusBarBrightness: Brightness.light,
-// ignore: avoid_hard_coded_colors
-    statusBarColor: Color.fromARGB(255, 153, 154, 251),
+    statusBarBrightness: Brightness.dark,
+    statusBarColor: Colors.transparent,
   );
 
   static const textFieldTextStyleHeight = 1.3;

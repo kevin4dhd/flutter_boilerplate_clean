@@ -239,8 +239,12 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
       context: useRootNavigator
           ? _rootRouterContext
           : _currentTabContextOrRootContext,
-      builder: (_) => m.WillPopScope(
-        onWillPop: () async {
+      builder: (_) => m.PopScope(
+        onPopInvokedWithResult: <bool>(didPop, result) async {
+          if (didPop) {
+            return Future.value(result);
+          }
+
           logD('Dialog $appPopupInfo dismissed');
           _shownPopups.remove(appPopupInfo);
 
@@ -285,8 +289,12 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
         m.Animation<double> animation1,
         m.Animation<double> animation2,
       ) =>
-          m.WillPopScope(
-        onWillPop: () async {
+          m.PopScope(
+        onPopInvokedWithResult: <bool>(didPop, result) async {
+          if (didPop) {
+            return Future.value(result);
+          }
+
           logD('Dialog $appPopupInfo dismissed');
           _shownPopups.remove(appPopupInfo);
 

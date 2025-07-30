@@ -3,8 +3,9 @@ import 'package:resources/resources.dart';
 import 'package:shared/shared.dart';
 
 enum InitialAppRoute {
-  login,
-  main,
+  // login,
+  // main,
+  splash,
 }
 
 enum Gender {
@@ -24,10 +25,6 @@ enum LanguageCode {
     localeCode: LocaleConstants.en,
     serverValue: ServerRequestResponseConstants.en,
   ),
-  ja(
-    localeCode: LocaleConstants.ja,
-    serverValue: ServerRequestResponseConstants.ja,
-  ),
   es(
     localeCode: LocaleConstants.es,
     serverValue: ServerRequestResponseConstants.es,
@@ -41,7 +38,7 @@ enum LanguageCode {
   final String localeCode;
   final String serverValue;
 
-  static const defaultValue = ja;
+  static const defaultValue = es;
 }
 
 enum NotificationType {
