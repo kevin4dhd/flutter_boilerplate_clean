@@ -27,7 +27,7 @@ class AppColors {
 
   Color get terciaryColor25 => terciaryColor.withValues(alpha: 0.25);
 
-  Color get iconsColor40 => terciaryColor.withValues(alpha: 0.40);
+  Color get iconsColor40 => iconsColor.withValues(alpha: 0.40);
 
   /// gradient
   final LinearGradient primaryGradient;

@@ -28,7 +28,7 @@ class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
       body: Container(
         width: width,
         height: height,
-        padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonP),
+        padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonPB),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,32 +43,18 @@ class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
               ),
               const SizedBox(height: 30),
               Button(
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     PageTransition(
-                  //         duration: const Duration(milliseconds: 100),
-                  //         type: PageTransitionType.rightToLeft,
-                  //         child: const PassCodeScreen()));
-                },
+                onTap: () => bloc.add(const ClickOnCreate()),
                 width: width,
-                title: 'create_new_wallet',
-                subtitle: 'secret_phrase',
+                title: S.current.create_new_wallet,
+                subtitle: S.current.secret_phrase,
                 icon: Icons.add,
               ),
               const SizedBox(height: 26),
               Button(
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     PageTransition(
-                  //         duration: const Duration(milliseconds: 100),
-                  //         type: PageTransitionType.rightToLeft,
-                  //         child: const InputSecretKey()));
-                },
+                onTap: () => bloc.add(const ClickOnImport()),
                 width: width,
-                title: 'add_existing_wallet',
-                subtitle: 'import_restore_view_only',
+                title: S.current.add_existing_wallet,
+                subtitle: S.current.import_restore_view_only,
                 icon: Icons.arrow_downward_rounded,
               ),
               const SizedBox(height: 36),

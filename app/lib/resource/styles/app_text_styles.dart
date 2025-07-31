@@ -69,6 +69,19 @@ class AppTextStyles {
         color: AppColors.current.popularColor,
       ));
 
+  static TextStyle s12BoldIcons({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d12.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.bold,
+        color: AppColors.current.iconsColor,
+      ));
+
   static TextStyle s14w400Primary({
     String? fontFamily,
     double? tablet,

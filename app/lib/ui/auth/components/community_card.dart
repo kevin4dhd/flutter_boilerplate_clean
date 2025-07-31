@@ -39,17 +39,18 @@ class CommunityCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    name,
-                    textAlign: TextAlign.left,
-                    style: AppTextStyles.s14BoldPrimary(),
+                  Expanded(
+                    child: Text(
+                      name,
+                      textAlign: TextAlign.left,
+                      style: AppTextStyles.s14BoldPrimary(),
+                    ),
                   ),
                   Text(
                     members.toString(),
                     textAlign: TextAlign.right,
-                    style: AppTextStyles.s12BoldPopular(),
+                    style: AppTextStyles.s12BoldIcons(),
                   ),
                 ],
               ),

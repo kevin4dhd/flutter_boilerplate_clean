@@ -26,6 +26,12 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
       ClickOnCreate event, Emitter<AuthState> emit) {
     return runBlocCatching(
       action: () async {
+        // Navigator.push(
+        //     context,
+        //     PageTransition(
+        //         duration: const Duration(milliseconds: 100),
+        //         type: PageTransitionType.rightToLeft,
+        //         child: const PassCodeScreen()));
         // await navigator.replace(const AppRouteInfo.login());
       },
       handleLoading: false,
@@ -36,6 +42,12 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
       ClickOnImport event, Emitter<AuthState> emit) {
     return runBlocCatching(
       action: () async {
+        // Navigator.push(
+        //     context,
+        //     PageTransition(
+        //         duration: const Duration(milliseconds: 100),
+        //         type: PageTransitionType.rightToLeft,
+        //         child: const InputSecretKey()));
         // await navigator.replace(const AppRouteInfo.login());
       },
       handleLoading: false,

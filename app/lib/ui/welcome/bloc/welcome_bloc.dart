@@ -30,7 +30,7 @@ class WelcomeBloc extends BaseBloc<WelcomeEvent, WelcomeState> {
   FutureOr<void> _onClickOnContinue(
       ClickOnContinue event, Emitter<WelcomeState> emit) {
     return runBlocCatching(
-      action: () async => await navigator.replace(const AppRouteInfo.auth()),
+      action: () async => await navigator.push(const AppRouteInfo.auth()),
       handleLoading: false,
     );
   }
