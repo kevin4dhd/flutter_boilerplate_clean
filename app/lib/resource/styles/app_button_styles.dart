@@ -10,6 +10,6 @@ class AppButtonStyles {
     foregroundColor: AppColors.current.iconsColor,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-    textStyle: const TextStyle(fontSize: 22),
+    textStyle: const TextStyle(fontSize: 20),
   );
 }

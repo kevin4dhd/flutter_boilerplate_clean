@@ -7,7 +7,9 @@ class AppColors {
   const AppColors({
     required this.primaryColor,
     required this.secondaryColor,
+    required this.terciaryColor,
     required this.iconsColor,
+    required this.popularColor,
     required this.primaryTextColor,
     required this.secondaryTextColor,
     required this.primaryGradient,
@@ -17,9 +19,15 @@ class AppColors {
 
   final Color primaryColor;
   final Color secondaryColor;
+  final Color terciaryColor;
   final Color iconsColor;
+  final Color popularColor;
   final Color primaryTextColor;
   final Color secondaryTextColor;
+
+  Color get terciaryColor25 => terciaryColor.withValues(alpha: 0.25);
+
+  Color get iconsColor40 => terciaryColor.withValues(alpha: 0.40);
 
   /// gradient
   final LinearGradient primaryGradient;
@@ -27,7 +35,9 @@ class AppColors {
   static const defaultAppColor = AppColors(
     primaryColor: Color(0xFF1B0036),
     secondaryColor: Color(0xFF005B65),
+    terciaryColor: Color(0xFF43388A),
     iconsColor: Color(0xFFACD9CF),
+    popularColor: Color(0xFFC6C4C4),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -37,7 +47,9 @@ class AppColors {
   static const darkThemeColor = AppColors(
     primaryColor: Color(0xFF1B0036),
     secondaryColor: Color(0xFF005B65),
+    terciaryColor: Color(0xFF43388A),
     iconsColor: Color(0xFFACD9CF),
+    popularColor: Color(0xFFC6C4C4),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -55,7 +67,9 @@ class AppColors {
   AppColors copyWith({
     Color? primaryColor,
     Color? secondaryColor,
+    Color? terciaryColor,
     Color? iconsColor,
+    Color? popularColor,
     Color? primaryTextColor,
     Color? secondaryTextColor,
     Color? terciaryTextColor,
@@ -64,7 +78,9 @@ class AppColors {
     return AppColors(
       primaryColor: primaryColor ?? this.primaryColor,
       secondaryColor: secondaryColor ?? this.secondaryColor,
+      terciaryColor: terciaryColor ?? this.terciaryColor,
       iconsColor: iconsColor ?? this.iconsColor,
+      popularColor: popularColor ?? this.popularColor,
       primaryTextColor: primaryTextColor ?? this.primaryTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
       primaryGradient: primaryGradient ?? this.primaryGradient,

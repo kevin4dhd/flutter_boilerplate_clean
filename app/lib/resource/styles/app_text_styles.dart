@@ -25,7 +25,7 @@ class AppTextStyles {
       _baseTextStyle.merge(TextStyle(
         fontFamily: fontFamily,
         fontSize:
-            Dimens.d12.responsive(tablet: tablet, ultraTablet: ultraTablet),
+            Dimens.d10.responsive(tablet: tablet, ultraTablet: ultraTablet),
         fontWeight: FontWeight.w400,
         color: AppColors.current.primaryTextColor,
       ));
@@ -43,6 +43,110 @@ class AppTextStyles {
         color: AppColors.current.secondaryColor,
       ));
 
+  static TextStyle s12w400Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d12.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.primaryTextColor,
+      ));
+
+  static TextStyle s12BoldPopular({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d12.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.bold,
+        color: AppColors.current.popularColor,
+      ));
+
+  static TextStyle s14w400Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d14.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.primaryTextColor,
+      ));
+
+  static TextStyle s14w400Popular({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d14.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.popularColor,
+      ));
+
+  static TextStyle s14BoldPrimary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d14.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.bold,
+        color: AppColors.current.primaryTextColor,
+      ));
+
+  static TextStyle s14BoldPopular({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d14.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.bold,
+        color: AppColors.current.popularColor,
+      ));
+
+  static TextStyle s15w400Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d15.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.primaryTextColor,
+      ));
+
+  static TextStyle s18w400Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d18.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.primaryTextColor,
+      ));
+
   static TextStyle s42w400Primary({
     String? fontFamily,
     double? tablet,
@@ -54,6 +158,7 @@ class AppTextStyles {
             Dimens.d42.responsive(tablet: tablet, ultraTablet: ultraTablet),
         fontWeight: FontWeight.w400,
         color: AppColors.current.primaryTextColor,
+        height: 0.78,
       ));
 
   static TextStyle s60w400Primary({
@@ -67,5 +172,6 @@ class AppTextStyles {
             Dimens.d60.responsive(tablet: tablet, ultraTablet: ultraTablet),
         fontWeight: FontWeight.w400,
         color: AppColors.current.primaryTextColor,
+        height: 0.78,
       ));
 }

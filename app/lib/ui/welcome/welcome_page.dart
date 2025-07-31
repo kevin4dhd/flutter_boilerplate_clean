@@ -22,26 +22,25 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
   Widget buildPage(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final width = size.width;
+    final height = size.height;
     return CommonScaffold(
       appBar: CommonAppBar(height: 0),
       body: Container(
         width: width,
-        height: size.height,
+        height: height,
         padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonP),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const SizedBox(height: 45),
-            Container(
-              width: 240,
-              height: 250,
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
+            SizedBox(height: height * 0.15),
+            Expanded(
+              child: Container(
+                alignment: Alignment.topCenter,
+                width: 240,
+                height: 250,
+                padding: const EdgeInsets.all(20),
+                child: Assets.svg.hiGLogo.svg(),
               ),
-              child: Assets.svg.hiGLogo.svg(),
             ),
-            const SizedBox(height: 110),
             SizedBox(
               child: Text(
                 'Connect, Exchange,\nThrive!',
@@ -51,6 +50,7 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
                 ),
               ),
             ),
+            const SizedBox(height: 22),
             ElevatedButton(
               onPressed: () => bloc.add(const ClickOnContinue()),
               style: AppButtonStyles.basicButton,
@@ -60,14 +60,15 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
                 child: Text(S.current.continue_),
               ),
             ),
+            const SizedBox(height: 22),
             RichText(
               text: TextSpan(
                 children: _buildSpans(S.current.terms_privacy_consent),
-                style: AppTextStyles.s10w400Primary(),
+                style: AppTextStyles.s12w400Primary(),
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 37),
           ],
         ),
       ),
@@ -128,19 +129,3 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
     bloc.add(const ClickOnPrivacity());
   }
 }
-
-/*"de": {
- "terms_privacy_consent": "Durch Tippen auf „Weiter“ stimmst du unseren {Nutzungsbedingungen,1} und unserer {Datenschutzrichtlinie,2} zu.",
-},
-"fr": {
- "terms_privacy_consent": "En appuyant sur « Continuer », vous acceptez nos {Conditions d'utilisation,1} et notre {Politique de confidentialité,2}.",
-},
-"tr": {
- "terms_privacy_consent": "\"Devam\" seçeneğine dokunarak, {Hizmet Şartlarımızı,1} ve {Gizlilik Politikamızı,2} kabul etmiş olursunuz.",
-},
-"ar": {
- "terms_privacy_consent": "بالنقر على \"متابعة\"، فإنك توافق على {1,شروط الخدمة الخاصة بنا،1} و{2,سياسة الخصوصية الخاصة بنا}.",
-},
-"it": {
- "terms_privacy_consent": "Toccando \"Continua\", accetti e acconsenti ai nostri {Termini di servizio,1} e alla nostra {Informativa sulla privacy,2}.",
-}*/

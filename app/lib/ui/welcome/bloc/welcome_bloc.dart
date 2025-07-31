@@ -1,6 +1,6 @@
 import 'dart:async';
 
-// import 'package:domain/domain.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared/shared.dart';
@@ -30,9 +30,7 @@ class WelcomeBloc extends BaseBloc<WelcomeEvent, WelcomeState> {
   FutureOr<void> _onClickOnContinue(
       ClickOnContinue event, Emitter<WelcomeState> emit) {
     return runBlocCatching(
-      action: () async {
-        // await navigator.replace(const AppRouteInfo.login());
-      },
+      action: () async => await navigator.replace(const AppRouteInfo.auth()),
       handleLoading: false,
     );
   }
