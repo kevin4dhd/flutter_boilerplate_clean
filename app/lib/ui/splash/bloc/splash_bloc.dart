@@ -28,7 +28,7 @@ class SplashBloc extends BaseBloc<SplashEvent, SplashState> {
             _isLoggedInUseCase.execute(const IsLoggedInInput()).isLoggedIn;
         await navigator.replace(isLoggedIn
             ? const AppRouteInfo.main()
-            : const AppRouteInfo.login());
+            : const AppRouteInfo.welcome());
       },
       handleLoading: false,
     );

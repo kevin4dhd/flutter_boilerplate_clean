@@ -32,4 +32,8 @@ class UiConstants {
   );
 
   static const textFieldTextStyleHeight = 1.3;
+
+  static const commonP = 16.0;
+  static const commonPS = 8.0;
+  static const commonPSS = 4.0;
 }

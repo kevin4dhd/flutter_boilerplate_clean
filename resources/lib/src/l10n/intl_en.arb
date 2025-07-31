@@ -30,5 +30,8 @@
   "darkTheme": "Dark Theme",
   "japanese": "Japanese",
   "spanish": "Spanish",
-  "english": "English"
+  "english": "English",
+  "continue_": "Continue",
+  "terms_privacy_consent": "By tapping 'Continue', you agree to and accept our {Terms of Service,1} and our {Privacy Policy,2}."
 }
+
