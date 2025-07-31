@@ -5,7 +5,7 @@ import 'package:shared/shared.dart';
 
 import '../../app.dart';
 import 'bloc/auth.dart';
-import 'components/components.dart';
+import 'widgets/widgets.dart';
 
 @RoutePage()
 class AuthPage extends StatefulWidget {
@@ -42,7 +42,7 @@ class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
                 ),
               ),
               const SizedBox(height: 30),
-              Button(
+              WalletActionButton(
                 onTap: () => bloc.add(const ClickOnCreate()),
                 width: width,
                 title: S.current.create_new_wallet,
@@ -50,7 +50,7 @@ class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
                 icon: Icons.add,
               ),
               const SizedBox(height: 26),
-              Button(
+              WalletActionButton(
                 onTap: () => bloc.add(const ClickOnImport()),
                 width: width,
                 title: S.current.add_existing_wallet,
@@ -69,19 +69,19 @@ class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
                 scrollDirection: Axis.vertical,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  CommunityCard(
+                  PopularCommunityCard(
                     image: Assets.images.karol,
                     name: 'Karol G',
                     country: S.current.global_community,
                     members: '20M',
                   ),
-                  CommunityCard(
+                  PopularCommunityCard(
                     image: Assets.images.rectangle37,
                     name: 'Design Freelancers',
                     country: 'UK',
                     members: '200k',
                   ),
-                  CommunityCard(
+                  PopularCommunityCard(
                     image: Assets.images.seconC,
                     name: 'Burning Man',
                     country: S.current.global_community,

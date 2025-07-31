@@ -1,9 +1,7 @@
 import 'dart:async';
 
-// import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-// import 'package:shared/shared.dart';
 
 import '../../../app.dart';
 import 'auth.dart';
@@ -26,13 +24,7 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
       ClickOnCreate event, Emitter<AuthState> emit) {
     return runBlocCatching(
       action: () async {
-        // Navigator.push(
-        //     context,
-        //     PageTransition(
-        //         duration: const Duration(milliseconds: 100),
-        //         type: PageTransitionType.rightToLeft,
-        //         child: const PassCodeScreen()));
-        // await navigator.replace(const AppRouteInfo.login());
+        // Navigate to create wallet flow - implementation pending
       },
       handleLoading: false,
     );
@@ -42,13 +34,7 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
       ClickOnImport event, Emitter<AuthState> emit) {
     return runBlocCatching(
       action: () async {
-        // Navigator.push(
-        //     context,
-        //     PageTransition(
-        //         duration: const Duration(milliseconds: 100),
-        //         type: PageTransitionType.rightToLeft,
-        //         child: const InputSecretKey()));
-        // await navigator.replace(const AppRouteInfo.login());
+        // Navigate to import wallet flow - implementation pending
       },
       handleLoading: false,
     );

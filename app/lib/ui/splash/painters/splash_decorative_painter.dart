@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../app.dart';
 
-class DottedLinePainter extends CustomPainter {
+class SplashDecorativePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()

@@ -3,8 +3,8 @@ import 'package:shared/shared.dart';
 
 import '../../../app.dart';
 
-class CommunityCard extends StatelessWidget {
-  const CommunityCard({
+class PopularCommunityCard extends StatelessWidget {
+  const PopularCommunityCard({
     required this.image,
     required this.name,
     required this.country,

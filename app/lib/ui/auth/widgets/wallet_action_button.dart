@@ -3,8 +3,8 @@ import 'package:shared/shared.dart';
 
 import '../../../app.dart';
 
-class Button extends StatelessWidget {
-  const Button({
+class WalletActionButton extends StatelessWidget {
+  const WalletActionButton({
     required this.onTap,
     required this.width,
     required this.title,
