@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
-import '../generated/fonts.gen.dart';
 
 /// AppTextStyle format as follows:
 /// s[fontSize][fontWeight][Color]
@@ -18,6 +17,19 @@ class AppTextStyles {
     fontFamilyFallback: [FontFamily.notoColorEmoji],
   );
 
+  static TextStyle s10w400Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d12.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.primaryTextColor,
+      ));
+
   static TextStyle s10BoldSecondary({
     String? fontFamily,
     double? tablet,
@@ -29,6 +41,19 @@ class AppTextStyles {
             Dimens.d10.responsive(tablet: tablet, ultraTablet: ultraTablet),
         fontWeight: FontWeight.bold,
         color: AppColors.current.secondaryColor,
+      ));
+
+  static TextStyle s42w400Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d42.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.primaryTextColor,
       ));
 
   static TextStyle s60w400Primary({

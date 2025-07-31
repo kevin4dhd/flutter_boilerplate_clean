@@ -30,5 +30,7 @@
   "darkTheme": "Tema oscuro",
   "japanese": "Japonés",
   "english": "Inglés",
-  "spanish": "Español"
+  "spanish": "Español",
+  "continue_": "Continuar",
+  "terms_privacy_consent": "Al tocar 'Continuar', aceptas y consientes nuestros {Términos de servicio,1} y nuestra {Política de privacidad,2}."
 }

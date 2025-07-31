@@ -7,6 +7,7 @@ class AppColors {
   const AppColors({
     required this.primaryColor,
     required this.secondaryColor,
+    required this.iconsColor,
     required this.primaryTextColor,
     required this.secondaryTextColor,
     required this.primaryGradient,
@@ -16,6 +17,7 @@ class AppColors {
 
   final Color primaryColor;
   final Color secondaryColor;
+  final Color iconsColor;
   final Color primaryTextColor;
   final Color secondaryTextColor;
 
@@ -25,6 +27,7 @@ class AppColors {
   static const defaultAppColor = AppColors(
     primaryColor: Color(0xFF1B0036),
     secondaryColor: Color(0xFF005B65),
+    iconsColor: Color(0xFFACD9CF),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -34,6 +37,7 @@ class AppColors {
   static const darkThemeColor = AppColors(
     primaryColor: Color(0xFF1B0036),
     secondaryColor: Color(0xFF005B65),
+    iconsColor: Color(0xFFACD9CF),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -51,6 +55,7 @@ class AppColors {
   AppColors copyWith({
     Color? primaryColor,
     Color? secondaryColor,
+    Color? iconsColor,
     Color? primaryTextColor,
     Color? secondaryTextColor,
     Color? terciaryTextColor,
@@ -59,6 +64,7 @@ class AppColors {
     return AppColors(
       primaryColor: primaryColor ?? this.primaryColor,
       secondaryColor: secondaryColor ?? this.secondaryColor,
+      iconsColor: iconsColor ?? this.iconsColor,
       primaryTextColor: primaryTextColor ?? this.primaryTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
       primaryGradient: primaryGradient ?? this.primaryGradient,

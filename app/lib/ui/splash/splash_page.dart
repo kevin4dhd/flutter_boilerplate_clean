@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-// import 'package:resources/resources.dart';
+import 'package:shared/shared.dart';
 
 import '../../app.dart';
-import '../../resource/generated/fonts.gen.dart';
 import 'bloc/splash.dart';
 
 @RoutePage()
@@ -27,15 +26,13 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc> {
   Widget buildPage(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return CommonScaffold(
-      appBar: CommonAppBar(
-        height: 0,
-      ),
+      appBar: CommonAppBar(height: 0),
       body: CustomPaint(
         painter: DottedLinePainter(),
         child: Container(
           width: size.width,
           height: size.height,
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonP),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
