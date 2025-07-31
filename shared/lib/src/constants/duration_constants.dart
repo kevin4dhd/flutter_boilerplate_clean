@@ -1,6 +1,7 @@
 class DurationConstants {
   const DurationConstants._();
 
+  static const defaultPageTransitionDuration = Duration(milliseconds: 300);
   static const defaultListGridTransitionDuration = Duration(milliseconds: 500);
   static const defaultEventTransfomDuration = Duration(milliseconds: 500);
   static const defaultGeneralDialogTransitionDuration =

@@ -82,9 +82,6 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
       case 2:
         bloc.add(const ClickOnPrivacity());
         break;
-      default:
-        // Handle unknown links if needed
-        break;
     }
   }
 }

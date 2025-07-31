@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared/shared.dart';
 
 import '../../app.dart';
 
@@ -12,7 +13,10 @@ import '../../app.dart';
 @LazySingleton()
 class AppRouter extends RootStackRouter {
   @override
-  RouteType get defaultRouteType => const RouteType.adaptive();
+  RouteType get defaultRouteType => RouteType.custom(
+        transitionsBuilder: TransitionsBuilders.slideLeft,
+        duration: DurationConstants.defaultPageTransitionDuration,
+      );
 
   @override
   List<AutoRoute> get routes => [
