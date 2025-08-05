@@ -38,4 +38,10 @@ class UiConstants {
   static const commonPA = 12.0;
   static const commonPS = 8.0;
   static const commonPSS = 4.0;
+
+  static const commonR = 10.0;
+  static const commonRS = 5.0;
+  static const commonRL = 20.0;
+
+  static const defaultPinLength = 6;
 }

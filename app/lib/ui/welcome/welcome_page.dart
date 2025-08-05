@@ -4,7 +4,6 @@ import 'package:resources/resources.dart';
 import 'package:shared/shared.dart';
 
 import '../../app.dart';
-import '../../shared_view/text/text.dart';
 import 'bloc/welcome.dart';
 
 @RoutePage()
@@ -53,7 +52,7 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
             const SizedBox(height: 22),
             ElevatedButton(
               onPressed: () => bloc.add(const ClickOnContinue()),
-              style: AppButtonStyles.basicButton,
+              style: AppButtonStyles.getBasicStyle(),
               child: Container(
                 alignment: Alignment.center,
                 width: width,

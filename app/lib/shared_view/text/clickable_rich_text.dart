@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
-import '../../utils/text_parser_utils.dart';
 
 class ClickableRichText extends StatelessWidget {
   const ClickableRichText({
@@ -27,7 +26,8 @@ class ClickableRichText extends StatelessWidget {
           text: text,
           onLinkTap: onLinkTap,
           defaultStyle: textStyle,
-          linkStyle: linkStyle ?? TextStyle(color: AppColors.current.iconsColor),
+          linkStyle:
+              linkStyle ?? TextStyle(color: AppColors.current.iconsColor),
         ),
         style: textStyle,
       ),

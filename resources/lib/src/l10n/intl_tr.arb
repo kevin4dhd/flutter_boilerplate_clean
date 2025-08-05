@@ -38,5 +38,8 @@
   "add_existing_wallet": "Cüzdanı ekle",
   "import_restore_view_only": "Görüntüle ve geri yükle",
   "popular_communities": "Popüler topluluklar",
-  "global_community": "Küresel topluluk"
+  "global_community": "Küresel topluluk",
+  "create_passcode": "Şifre oluştur",
+  "enter_passcode_remember": "Şifrenizi girin. Unutmadığınızdan emin olun.",
+  "insecure_pass": "Güvensiz şifre. Lütfen başka bir tane deneyin."
 }

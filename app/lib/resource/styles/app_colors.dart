@@ -10,6 +10,7 @@ class AppColors {
     required this.terciaryColor,
     required this.iconsColor,
     required this.popularColor,
+    required this.pinBorderColor,
     required this.primaryTextColor,
     required this.secondaryTextColor,
     required this.primaryGradient,
@@ -22,6 +23,7 @@ class AppColors {
   final Color terciaryColor;
   final Color iconsColor;
   final Color popularColor;
+  final Color pinBorderColor;
   final Color primaryTextColor;
   final Color secondaryTextColor;
 
@@ -38,6 +40,7 @@ class AppColors {
     terciaryColor: Color(0xFF43388A),
     iconsColor: Color(0xFFACD9CF),
     popularColor: Color(0xFFC6C4C4),
+    pinBorderColor: Color(0xFF5B6774),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -50,6 +53,7 @@ class AppColors {
     terciaryColor: Color(0xFF43388A),
     iconsColor: Color(0xFFACD9CF),
     popularColor: Color(0xFFC6C4C4),
+    pinBorderColor: Color(0xFF5B6774),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -70,6 +74,7 @@ class AppColors {
     Color? terciaryColor,
     Color? iconsColor,
     Color? popularColor,
+    Color? pinBorderColor,
     Color? primaryTextColor,
     Color? secondaryTextColor,
     Color? terciaryTextColor,
@@ -81,6 +86,7 @@ class AppColors {
       terciaryColor: terciaryColor ?? this.terciaryColor,
       iconsColor: iconsColor ?? this.iconsColor,
       popularColor: popularColor ?? this.popularColor,
+      pinBorderColor: pinBorderColor ?? this.pinBorderColor,
       primaryTextColor: primaryTextColor ?? this.primaryTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
       primaryGradient: primaryGradient ?? this.primaryGradient,
