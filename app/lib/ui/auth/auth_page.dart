@@ -5,7 +5,7 @@ import 'package:shared/shared.dart';
 
 import '../../app.dart';
 import 'bloc/auth.dart';
-import 'components/components.dart';
+import 'widgets/widgets.dart';
 
 @RoutePage()
 class AuthPage extends StatefulWidget {
@@ -28,7 +28,7 @@ class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
       body: Container(
         width: width,
         height: height,
-        padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonP),
+        padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonPB),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,33 +42,19 @@ class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
                 ),
               ),
               const SizedBox(height: 30),
-              Button(
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     PageTransition(
-                  //         duration: const Duration(milliseconds: 100),
-                  //         type: PageTransitionType.rightToLeft,
-                  //         child: const PassCodeScreen()));
-                },
+              WalletActionButton(
+                onTap: () => bloc.add(const ClickOnCreate()),
                 width: width,
-                title: 'create_new_wallet',
-                subtitle: 'secret_phrase',
+                title: S.current.create_new_wallet,
+                subtitle: S.current.secret_phrase,
                 icon: Icons.add,
               ),
               const SizedBox(height: 26),
-              Button(
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     PageTransition(
-                  //         duration: const Duration(milliseconds: 100),
-                  //         type: PageTransitionType.rightToLeft,
-                  //         child: const InputSecretKey()));
-                },
+              WalletActionButton(
+                onTap: () => bloc.add(const ClickOnImport()),
                 width: width,
-                title: 'add_existing_wallet',
-                subtitle: 'import_restore_view_only',
+                title: S.current.add_existing_wallet,
+                subtitle: S.current.import_restore_view_only,
                 icon: Icons.arrow_downward_rounded,
               ),
               const SizedBox(height: 36),
@@ -83,19 +69,19 @@ class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
                 scrollDirection: Axis.vertical,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  CommunityCard(
+                  PopularCommunityCard(
                     image: Assets.images.karol,
                     name: 'Karol G',
                     country: S.current.global_community,
                     members: '20M',
                   ),
-                  CommunityCard(
+                  PopularCommunityCard(
                     image: Assets.images.rectangle37,
                     name: 'Design Freelancers',
                     country: 'UK',
                     members: '200k',
                   ),
-                  CommunityCard(
+                  PopularCommunityCard(
                     image: Assets.images.seconC,
                     name: 'Burning Man',
                     country: S.current.global_community,

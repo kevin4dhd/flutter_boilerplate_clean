@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:resources/resources.dart';
 import 'package:shared/shared.dart';
@@ -53,7 +52,7 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
             const SizedBox(height: 22),
             ElevatedButton(
               onPressed: () => bloc.add(const ClickOnContinue()),
-              style: AppButtonStyles.basicButton,
+              style: AppButtonStyles.getBasicStyle(),
               child: Container(
                 alignment: Alignment.center,
                 width: width,
@@ -61,12 +60,11 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
               ),
             ),
             const SizedBox(height: 22),
-            RichText(
-              text: TextSpan(
-                children: _buildSpans(S.current.terms_privacy_consent),
-                style: AppTextStyles.s12w400Primary(),
-              ),
+            ClickableRichText(
+              text: S.current.terms_privacy_consent,
+              onLinkTap: _onLinkTap,
               textAlign: TextAlign.center,
+              textStyle: AppTextStyles.s12w400Primary(),
             ),
             const SizedBox(height: 37),
           ],
@@ -75,57 +73,14 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
     );
   }
 
-  List<TextSpan> _buildSpans(String text) {
-    final spans = <TextSpan>[];
-
-    int pivot = 0;
-    while (true) {
-      final sText = text.substring(pivot);
-      final fIndex = sText.indexOf('{');
-
-      if (fIndex == -1) {
-        spans.add(TextSpan(text: sText));
+  void _onLinkTap(int linkId, String linkText) {
+    switch (linkId) {
+      case 1:
+        bloc.add(const ClickOnTerms());
         break;
-      }
-
-      if (fIndex > 0) {
-        spans.add(TextSpan(text: sText.substring(0, fIndex)));
-      }
-
-      final lIndex = sText.indexOf('}');
-      final parts = sText.substring(fIndex + 1, lIndex).split(',');
-
-      String content;
-      int? parsed = int.tryParse(parts.first);
-      if (parsed == null) {
-        parsed = int.tryParse(parts.last);
-        content = parts.first;
-      } else {
-        content = parts.last;
-      }
-
-      spans.add(
-        TextSpan(
-          text: content,
-          style: TextStyle(
-            color: AppColors.current.iconsColor,
-          ),
-          recognizer: TapGestureRecognizer()
-            ..onTap = parsed == 1 ? callBack1 : callBack2,
-        ),
-      );
-
-      pivot += lIndex + 1;
+      case 2:
+        bloc.add(const ClickOnPrivacity());
+        break;
     }
-
-    return spans;
-  }
-
-  void callBack1() {
-    bloc.add(const ClickOnTerms());
-  }
-
-  void callBack2() {
-    bloc.add(const ClickOnPrivacity());
   }
 }

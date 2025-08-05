@@ -38,5 +38,8 @@
   "add_existing_wallet": "Wallet importieren",
   "import_restore_view_only": "Wallet hinzufügen",
   "popular_communities": "Beliebte Communities",
-  "global_community": "Globale Community"
+  "global_community": "Globale Community",
+  "create_passcode": "Passcode erstellen",
+  "enter_passcode_remember": "Geben Sie Ihren Code ein. Stellen Sie sicher, dass Sie sich daran erinnern.",
+  "insecure_pass": "Unsicheres Passwort. Bitte versuchen Sie ein anderes."
 }

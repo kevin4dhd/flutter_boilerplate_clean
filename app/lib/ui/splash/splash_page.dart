@@ -4,7 +4,7 @@ import 'package:shared/shared.dart';
 
 import '../../app.dart';
 import 'bloc/splash.dart';
-import 'components/components.dart';
+import 'painters/painters.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc> {
     return CommonScaffold(
       appBar: CommonAppBar(height: 0),
       body: CustomPaint(
-        painter: DottedLinePainter(),
+        painter: SplashDecorativePainter(),
         child: Container(
           width: size.width,
           height: size.height,

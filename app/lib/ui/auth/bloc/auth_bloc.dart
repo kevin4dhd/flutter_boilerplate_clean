@@ -1,9 +1,8 @@
 import 'dart:async';
 
-// import 'package:domain/domain.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-// import 'package:shared/shared.dart';
 
 import '../../../app.dart';
 import 'auth.dart';
@@ -25,9 +24,7 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
   FutureOr<void> _onClickOnCreate(
       ClickOnCreate event, Emitter<AuthState> emit) {
     return runBlocCatching(
-      action: () async {
-        // await navigator.replace(const AppRouteInfo.login());
-      },
+      action: () async => navigator.push(const AppRouteInfo.passCode()),
       handleLoading: false,
     );
   }
@@ -36,7 +33,7 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
       ClickOnImport event, Emitter<AuthState> emit) {
     return runBlocCatching(
       action: () async {
-        // await navigator.replace(const AppRouteInfo.login());
+        // Navigate to import wallet flow - implementation pending
       },
       handleLoading: false,
     );

@@ -8,6 +8,12 @@ final lightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: AppColors.darkThemeColor.primaryColor,
   ),
+  pageTransitionsTheme: const PageTransitionsTheme(
+    builders: {
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    },
+  ),
   brightness: Brightness.dark,
   splashColor: Colors.transparent,
 )..addAppColor(
@@ -19,6 +25,12 @@ final darkTheme = ThemeData(
   scaffoldBackgroundColor: AppColors.darkThemeColor.primaryColor,
   appBarTheme: AppBarTheme(
     backgroundColor: AppColors.darkThemeColor.primaryColor,
+  ),
+  pageTransitionsTheme: const PageTransitionsTheme(
+    builders: {
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    },
   ),
   brightness: Brightness.dark,
   splashColor: Colors.transparent,
