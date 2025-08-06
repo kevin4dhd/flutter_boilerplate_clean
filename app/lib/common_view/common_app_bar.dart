@@ -2,7 +2,6 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:shared/shared.dart';
 
 import '../app.dart';
 
@@ -97,13 +96,10 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           : GestureDetector(
               onTap:
                   onLeadingPressed ?? () => context.read<AppNavigator>().pop(),
-              child: Padding(
-                padding: EdgeInsets.only(left: Dimens.d16.responsive()),
-                child: _buildIcon(
-                  leadingIcon == LeadingIcon.close
-                      ? Assets.images.iconClose
-                      : Assets.images.iconBack,
-                ),
+              child: _buildIcon(
+                leadingIcon == LeadingIcon.close
+                    ? Assets.svg.iconClose
+                    : Assets.svg.iconBack,
               ),
             ),
       centerTitle: centerTitle,
@@ -113,7 +109,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: titleType == AppBarTitle.text
             ? Text(text ?? '', style: titleTextStyle)
             : titleType == AppBarTitle.logo
-                ? _buildIcon(Assets.images.logo)
+                ? _buildIcon(Assets.svg.logo)
                 : null,
       ),
       actions: actions,
@@ -123,11 +119,15 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   Widget _buildIcon(SvgGenImage svg) {
-    return svg.svg(
-      colorFilter:
-          leadingIconColor?.let((it) => ColorFilter.mode(it, BlendMode.srcIn)),
-      width: Dimens.d24.responsive(),
-      height: Dimens.d24.responsive(),
+    return Center(
+      child: svg.svg(
+        colorFilter: ColorFilter.mode(
+          leadingIconColor ?? AppColors.current.primaryTextColor,
+          BlendMode.srcIn,
+        ),
+        width: Dimens.d24.responsive(),
+        height: Dimens.d24.responsive(),
+      ),
     );
   }
 }

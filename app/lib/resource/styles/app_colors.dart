@@ -1,4 +1,3 @@
-// ignore_for_file: avoid_hard_coded_colors
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
@@ -12,6 +11,7 @@ class AppColors {
     required this.popularColor,
     required this.pinBorderColor,
     required this.fingerprintBGColor,
+    required this.backButtonColor,
     required this.primaryTextColor,
     required this.secondaryTextColor,
     required this.primaryGradient,
@@ -26,6 +26,7 @@ class AppColors {
   final Color popularColor;
   final Color pinBorderColor;
   final Color fingerprintBGColor;
+  final Color backButtonColor;
   final Color primaryTextColor;
   final Color secondaryTextColor;
 
@@ -46,6 +47,7 @@ class AppColors {
     popularColor: Color(0xFFC6C4C4),
     pinBorderColor: Color(0xFF5B6774),
     fingerprintBGColor: Color(0xFF808080),
+    backButtonColor: Color(0xFFADA2B9),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -60,6 +62,7 @@ class AppColors {
     popularColor: Color(0xFFC6C4C4),
     pinBorderColor: Color(0xFF5B6774),
     fingerprintBGColor: Color(0xFF808080),
+    backButtonColor: Color(0xFFADA2B9),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -82,6 +85,7 @@ class AppColors {
     Color? popularColor,
     Color? pinBorderColor,
     Color? fingerprintBGColor,
+    Color? backButtonColor,
     Color? primaryTextColor,
     Color? secondaryTextColor,
     Color? terciaryTextColor,
@@ -95,6 +99,7 @@ class AppColors {
       popularColor: popularColor ?? this.popularColor,
       pinBorderColor: pinBorderColor ?? this.pinBorderColor,
       fingerprintBGColor: fingerprintBGColor ?? this.fingerprintBGColor,
+      backButtonColor: backButtonColor ?? this.backButtonColor,
       primaryTextColor: primaryTextColor ?? this.primaryTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
       primaryGradient: primaryGradient ?? this.primaryGradient,

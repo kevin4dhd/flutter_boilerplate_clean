@@ -49,7 +49,9 @@ class _PassCodePageState extends BasePageState<PassCodePage, PassCodeBloc> {
     final width = dimen.screenWidth;
     final height = dimen.screenHeight;
     return CommonScaffold(
-      appBar: CommonAppBar(),
+      appBar: CommonAppBar(
+        leadingIconColor: AppColors.current.backButtonColor,
+      ),
       body: SafeArea(
         child: Container(
           width: width,

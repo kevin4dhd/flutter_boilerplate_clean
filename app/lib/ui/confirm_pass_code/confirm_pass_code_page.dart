@@ -68,7 +68,9 @@ class _ConfirmPassCodePageState
       builder: (context, state) {
         final enabledBiometric = state.enabledBiometric;
         return CommonScaffold(
-          appBar: CommonAppBar(),
+          appBar: CommonAppBar(
+            leadingIconColor: AppColors.current.backButtonColor,
+          ),
           body: SafeArea(
             child: Container(
               width: width,
