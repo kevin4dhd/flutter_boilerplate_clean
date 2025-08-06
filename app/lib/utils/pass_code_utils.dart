@@ -3,8 +3,10 @@ import 'package:shared/shared.dart';
 class PassCodeUtils {
   PassCodeUtils._();
 
-  static bool isValid(String passCode) {
-    if (passCode.length != UiConstants.defaultPinLength) {
+  static bool isValid(String passCode, {int? pinLength}) {
+    if (passCode.length != (pinLength ?? UiConstants.defaultPinLength)) {
+      return false;
+    } else if (!_containsOnlyDigits(passCode)) {
       return false;
     } else if (_hasRepeatedDigits(passCode)) {
       return false;
@@ -17,6 +19,10 @@ class PassCodeUtils {
     }
 
     return true;
+  }
+
+  static bool _containsOnlyDigits(String text) {
+    return RegExp(r'^\d+$').hasMatch(text);
   }
 
   static bool _hasRepeatedDigits(String pin) {

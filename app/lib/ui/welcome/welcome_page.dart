@@ -76,7 +76,7 @@ class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
     );
   }
 
-  void _onLinkTap(int linkId, String linkText) {
+  void _onLinkTap(int linkId) {
     switch (linkId) {
       case 1:
         bloc.add(const ClickOnTerms());

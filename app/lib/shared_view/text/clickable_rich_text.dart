@@ -13,7 +13,7 @@ class ClickableRichText extends StatelessWidget {
   });
 
   final String text;
-  final Function(int linkId, String linkText) onLinkTap;
+  final Function(int linkId) onLinkTap;
   final TextAlign textAlign;
   final TextStyle? textStyle;
   final TextStyle? linkStyle;
@@ -22,7 +22,7 @@ class ClickableRichText extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        children: TextParserUtils.parseClickableText(
+        children: TextParserUtils.generateSpanList(
           text: text,
           onLinkTap: onLinkTap,
           defaultStyle: textStyle,
