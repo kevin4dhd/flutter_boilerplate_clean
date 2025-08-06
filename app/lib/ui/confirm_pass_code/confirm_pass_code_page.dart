@@ -59,9 +59,9 @@ class _ConfirmPassCodePageState
 
   @override
   Widget buildPage(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-    final width = size.width;
-    final height = size.height;
+    final dimen = AppDimen.current;
+    final width = dimen.screenWidth;
+    final height = dimen.screenHeight;
     return BlocBuilder<ConfirmPassCodeBloc, ConfirmPassCodeState>(
       buildWhen: (previous, current) =>
           previous.enabledBiometric != current.enabledBiometric,

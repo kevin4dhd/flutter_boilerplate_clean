@@ -45,9 +45,9 @@ class _PassCodePageState extends BasePageState<PassCodePage, PassCodeBloc> {
 
   @override
   Widget buildPage(BuildContext context) {
-    late final size = MediaQuery.sizeOf(context);
-    final width = size.width;
-    final height = size.height;
+    final dimen = AppDimen.current;
+    final width = dimen.screenWidth;
+    final height = dimen.screenHeight;
     return CommonScaffold(
       appBar: CommonAppBar(),
       body: SafeArea(

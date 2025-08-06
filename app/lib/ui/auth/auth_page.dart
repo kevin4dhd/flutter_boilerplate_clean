@@ -20,9 +20,9 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends BasePageState<AuthPage, AuthBloc> {
   @override
   Widget buildPage(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-    final width = size.width;
-    final height = size.height;
+    final dimen = AppDimen.current;
+    final width = dimen.screenWidth;
+    final height = dimen.screenHeight;
     return CommonScaffold(
       appBar: CommonAppBar(height: 0),
       body: SafeArea(

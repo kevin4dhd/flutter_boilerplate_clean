@@ -27,15 +27,17 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc> {
 
   @override
   Widget buildPage(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
+    final dimen = AppDimen.current;
+    final width = dimen.screenWidth;
+    final height = dimen.screenHeight;
     return CommonScaffold(
       resizeToAvoidBottomInset: false,
       appBar: CommonAppBar(height: 0),
       body: CustomPaint(
         painter: SplashDecorativePainter(),
         child: Container(
-          width: size.width,
-          height: size.height,
+          width: width,
+          height: height,
           padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonP),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
