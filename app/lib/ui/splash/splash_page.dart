@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared/shared.dart';
 
 import '../../app.dart';
@@ -20,19 +21,23 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc> {
   @override
   void initState() {
     super.initState();
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
     bloc.add(const SplashPageInitiated());
   }
 
   @override
   Widget buildPage(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final dimen = AppDimen.current;
+    final width = dimen.screenWidth;
+    final height = dimen.screenHeight;
     return CommonScaffold(
+      resizeToAvoidBottomInset: false,
       appBar: CommonAppBar(height: 0),
       body: CustomPaint(
         painter: SplashDecorativePainter(),
         child: Container(
-          width: size.width,
-          height: size.height,
+          width: width,
+          height: height,
           padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonP),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -16,5 +16,6 @@ class SharedConfig extends Config {
   Future<void> config() async {
     di.configureInjection();
     await GetIt.instance.get<AppInfo>().init();
+    await GetIt.instance.get<DeviceInfo>().init();
   }
 }

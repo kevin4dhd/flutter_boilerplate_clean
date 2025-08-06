@@ -11,6 +11,8 @@ class AppRouteInfo with _$AppRouteInfo {
   const factory AppRouteInfo.welcome() = _Welcome;
   const factory AppRouteInfo.auth() = _Auth;
   const factory AppRouteInfo.passCode() = _PassCode;
+  const factory AppRouteInfo.confirmPassCode(String passCode) =
+      _ConfirmPassCode;
   const factory AppRouteInfo.login() = _Login;
   const factory AppRouteInfo.main() = _Main;
   const factory AppRouteInfo.itemDetail(User user) = _UserDetail;

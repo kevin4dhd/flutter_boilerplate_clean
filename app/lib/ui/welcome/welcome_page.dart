@@ -19,61 +19,64 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends BasePageState<WelcomePage, WelcomeBloc> {
   @override
   Widget buildPage(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final width = size.width;
-    final height = size.height;
+    final dimen = AppDimen.current;
+    final width = dimen.screenWidth;
+    final height = dimen.screenHeight;
     return CommonScaffold(
+      resizeToAvoidBottomInset: false,
       appBar: CommonAppBar(height: 0),
-      body: Container(
-        width: width,
-        height: height,
-        padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonP),
-        child: Column(
-          children: [
-            SizedBox(height: height * 0.15),
-            Expanded(
-              child: Container(
-                alignment: Alignment.topCenter,
-                width: 240,
-                height: 250,
-                padding: const EdgeInsets.all(20),
-                child: Assets.svg.hiGLogo.svg(),
-              ),
-            ),
-            SizedBox(
-              child: Text(
-                'Connect, Exchange,\nThrive!',
-                textAlign: TextAlign.center,
-                style: AppTextStyles.s42w400Primary(
-                  fontFamily: FontFamily.ntr,
+      body: SafeArea(
+        child: Container(
+          width: width,
+          height: height,
+          padding: const EdgeInsets.symmetric(horizontal: UiConstants.commonP),
+          child: Column(
+            children: [
+              SizedBox(height: height * 0.15),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.topCenter,
+                  width: 240,
+                  height: 250,
+                  padding: const EdgeInsets.all(20),
+                  child: Assets.svg.hiGLogo.svg(),
                 ),
               ),
-            ),
-            const SizedBox(height: 22),
-            ElevatedButton(
-              onPressed: () => bloc.add(const ClickOnContinue()),
-              style: AppButtonStyles.getBasicStyle(),
-              child: Container(
-                alignment: Alignment.center,
-                width: width,
-                child: Text(S.current.continue_),
+              SizedBox(
+                child: Text(
+                  'Connect, Exchange,\nThrive!',
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.s42w400Primary(
+                    fontFamily: FontFamily.ntr,
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(height: 22),
-            ClickableRichText(
-              text: S.current.terms_privacy_consent,
-              onLinkTap: _onLinkTap,
-              textAlign: TextAlign.center,
-              textStyle: AppTextStyles.s12w400Primary(),
-            ),
-            const SizedBox(height: 37),
-          ],
+              const SizedBox(height: 22),
+              ElevatedButton(
+                onPressed: () => bloc.add(const ClickOnContinue()),
+                style: AppButtonStyles.getBasicStyle(),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: width,
+                  child: Text(S.current.continue_),
+                ),
+              ),
+              const SizedBox(height: 22),
+              ClickableRichText(
+                text: S.current.termsPrivacyConsent,
+                onLinkTap: _onLinkTap,
+                textAlign: TextAlign.center,
+                textStyle: AppTextStyles.s12w400Primary(),
+              ),
+              const SizedBox(height: 37),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  void _onLinkTap(int linkId, String linkText) {
+  void _onLinkTap(int linkId) {
     switch (linkId) {
       case 1:
         bloc.add(const ClickOnTerms());

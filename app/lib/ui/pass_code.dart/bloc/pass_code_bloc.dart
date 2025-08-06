@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:resources/resources.dart';
@@ -38,12 +39,12 @@ class PassCodeBloc extends BaseBloc<PassCodeEvent, PassCodeState> {
     return runBlocCatching(
       action: () async {
         if (PassCodeUtils.isValid(event.passCode)) {
-          // navigator.replace(const AppRouteInfo.confirmPassCode(event.passCode));
+          await navigator.replace(AppRouteInfo.confirmPassCode(event.passCode));
         } else {
           emit(state.copyWith(
             shouldClearPin: true,
           ));
-          navigator.showErrorSnackBar(S.current.insecure_pass);
+          navigator.showErrorSnackBar(S.current.insecurePass);
         }
       },
       handleLoading: false,

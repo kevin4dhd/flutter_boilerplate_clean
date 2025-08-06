@@ -11,6 +11,7 @@ class AppColors {
     required this.iconsColor,
     required this.popularColor,
     required this.pinBorderColor,
+    required this.fingerprintBGColor,
     required this.primaryTextColor,
     required this.secondaryTextColor,
     required this.primaryGradient,
@@ -24,12 +25,15 @@ class AppColors {
   final Color iconsColor;
   final Color popularColor;
   final Color pinBorderColor;
+  final Color fingerprintBGColor;
   final Color primaryTextColor;
   final Color secondaryTextColor;
 
   Color get terciaryColor25 => terciaryColor.withValues(alpha: 0.25);
 
   Color get iconsColor40 => iconsColor.withValues(alpha: 0.40);
+
+  Color get fingerprintBGColor55 => iconsColor.withValues(alpha: 0.55);
 
   /// gradient
   final LinearGradient primaryGradient;
@@ -41,6 +45,7 @@ class AppColors {
     iconsColor: Color(0xFFACD9CF),
     popularColor: Color(0xFFC6C4C4),
     pinBorderColor: Color(0xFF5B6774),
+    fingerprintBGColor: Color(0xFF808080),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -54,6 +59,7 @@ class AppColors {
     iconsColor: Color(0xFFACD9CF),
     popularColor: Color(0xFFC6C4C4),
     pinBorderColor: Color(0xFF5B6774),
+    fingerprintBGColor: Color(0xFF808080),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -75,6 +81,7 @@ class AppColors {
     Color? iconsColor,
     Color? popularColor,
     Color? pinBorderColor,
+    Color? fingerprintBGColor,
     Color? primaryTextColor,
     Color? secondaryTextColor,
     Color? terciaryTextColor,
@@ -87,6 +94,7 @@ class AppColors {
       iconsColor: iconsColor ?? this.iconsColor,
       popularColor: popularColor ?? this.popularColor,
       pinBorderColor: pinBorderColor ?? this.pinBorderColor,
+      fingerprintBGColor: fingerprintBGColor ?? this.fingerprintBGColor,
       primaryTextColor: primaryTextColor ?? this.primaryTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
       primaryGradient: primaryGradient ?? this.primaryGradient,

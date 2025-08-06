@@ -11,6 +11,7 @@ class CommonScaffold extends StatelessWidget {
     this.drawer,
     this.backgroundColor,
     this.hideKeyboardWhenTouchOutside = false,
+    this.resizeToAvoidBottomInset,
     super.key,
   });
 
@@ -20,6 +21,7 @@ class CommonScaffold extends StatelessWidget {
   final Widget? floatingActionButton;
   final Color? backgroundColor;
   final bool hideKeyboardWhenTouchOutside;
+  final bool? resizeToAvoidBottomInset;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class CommonScaffold extends StatelessWidget {
       appBar: appBar,
       drawer: drawer,
       floatingActionButton: floatingActionButton,
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
     );
 
     return hideKeyboardWhenTouchOutside
