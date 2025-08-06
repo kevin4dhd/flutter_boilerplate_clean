@@ -13,6 +13,7 @@ class AppRouteInfoMapper extends BaseRouteInfoMapper {
       welcome: () => const WelcomeRoute(),
       auth: () => const AuthRoute(),
       passCode: () => const PassCodeRoute(),
+      confirmPassCode: (passCode) => ConfirmPassCodeRoute(passCode: passCode),
       login: () => const LoginRoute(),
       main: () => const MainRoute(),
       itemDetail: (user) => ItemDetailRoute(user: user),

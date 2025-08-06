@@ -162,6 +162,19 @@ class AppTextStyles {
         letterSpacing: letterSpacing,
       ));
 
+  static TextStyle s16w400Popular({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d16.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.popularColor,
+      ));
+
   static TextStyle s17w400Primary({
     String? fontFamily,
     double? tablet,

@@ -45,39 +45,42 @@ class _PassCodePageState extends BasePageState<PassCodePage, PassCodeBloc> {
 
   @override
   Widget buildPage(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    late final size = MediaQuery.sizeOf(context);
     final width = size.width;
     final height = size.height;
     return CommonScaffold(
       appBar: CommonAppBar(),
-      body: Container(
-        width: width,
-        height: height,
-        padding: const EdgeInsets.symmetric(horizontal: 26),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: height * 0.18),
-              Text(
-                S.current.create_passcode,
-                style: AppTextStyles.s17w400Primary(),
-              ),
-              SizedBox(height: height * 0.03),
-              AppPinput(
-                controller: _controller,
-                focusNode: _focusNode,
-                onChanged: (passCode) =>
-                    bloc.add(PassCodePinChanged(passCode: passCode)),
-                onCompleted: (passCode) =>
-                    bloc.add(PassCodePinCompleted(passCode: passCode)),
-              ),
-              SizedBox(height: height * 0.03),
-              Text(
-                S.current.enter_passcode_remember,
-                textAlign: TextAlign.center,
-                style: AppTextStyles.s15w400Popular(letterSpacing: -0.5),
-              ),
-            ],
+      body: SafeArea(
+        child: Container(
+          width: width,
+          height: height,
+          padding: const EdgeInsets.symmetric(horizontal: 26),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: height * 0.18),
+                Text(
+                  S.current.createPasscode,
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.s17w400Primary(),
+                ),
+                SizedBox(height: height * 0.03),
+                AppPinput(
+                  controller: _controller,
+                  focusNode: _focusNode,
+                  onChanged: (passCode) =>
+                      bloc.add(PassCodePinChanged(passCode: passCode)),
+                  onCompleted: (passCode) =>
+                      bloc.add(PassCodePinCompleted(passCode: passCode)),
+                ),
+                SizedBox(height: height * 0.03),
+                Text(
+                  S.current.enterPasscodeRemember,
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.s15w400Popular(letterSpacing: -0.5),
+                ),
+              ],
+            ),
           ),
         ),
       ),
