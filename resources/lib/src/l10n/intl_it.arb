@@ -55,5 +55,11 @@
   "biometricRequiredTitle": "Biometria richiesta",
   "deviceCredentialsRequiredTitle": "Credenziali del dispositivo richieste",
   "deviceCredentialsSetupDescription": "Configura il blocco schermo del dispositivo.",
-  "localizedReason": "Autenticati per accedere in modo sicuro all'app."
+  "localizedReason": "Autenticati per accedere in modo sicuro all'app.",
+  "backup": "Backup",
+  "backupSecretPhrase": "Backup frase segreta",
+  "protectAssetsBackupInstruction": "Salva queste 12 parole in un posto sicuro. Se perdi questa frase, non potrai riottenere l'accesso al tuo portafoglio Hi-G.",
+  "backupWarning": "Comprendo che se perdo o dimentico questa frase segreta perderò l'accesso ai miei portafogli Hi-G.",
+  "backupManually": "Backup Manuale",
+  "errorGeneratingSecretPhrase": "Errore durante la generazione della frase segreta"
 }

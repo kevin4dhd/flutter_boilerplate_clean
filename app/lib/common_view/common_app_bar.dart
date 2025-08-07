@@ -13,7 +13,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.onTitlePressed,
     this.leadingIcon = LeadingIcon.back,
     this.titleType = AppBarTitle.text,
-    this.centerTitle,
+    this.centerTitle = true,
     this.elevation = 0.0,
     this.actions,
     this.height,
@@ -44,7 +44,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onTitlePressed;
   final LeadingIcon leadingIcon;
   final AppBarTitle titleType;
-  final bool? centerTitle;
+  final bool centerTitle;
   final double elevation;
   final List<Widget>? actions;
   final double? height;
@@ -107,7 +107,13 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         onTap: onTitlePressed,
         behavior: HitTestBehavior.translucent,
         child: titleType == AppBarTitle.text
-            ? Text(text ?? '', style: titleTextStyle)
+            ? Text(
+                text ?? '',
+                style: titleTextStyle ??
+                    AppTextStyles.s18w500Primary(
+                      fontFamily: FontFamily.ntr,
+                    ),
+              )
             : titleType == AppBarTitle.logo
                 ? _buildIcon(Assets.svg.logo)
                 : null,

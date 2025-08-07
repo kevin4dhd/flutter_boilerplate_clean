@@ -55,5 +55,11 @@
   "biometricRequiredTitle": "Biometrie erforderlich",
   "deviceCredentialsRequiredTitle": "Geräteanmeldedaten erforderlich",
   "deviceCredentialsSetupDescription": "Richten Sie die Bildschirmsperre Ihres Geräts ein.",
-  "localizedReason": "Authentifizieren Sie sich, um sicher auf die App zuzugreifen."
+  "localizedReason": "Authentifizieren Sie sich, um sicher auf die App zuzugreifen.",
+  "backup": "Backup",
+  "backupSecretPhrase": "Geheimen Satz sichern",
+  "protectAssetsBackupInstruction": "Bewahren Sie diese 12 Wörter an einem sicheren Ort auf. Wenn Sie diesen Satz verlieren, können Sie nicht mehr auf Ihre Hi-G-Brieftasche zugreifen.",
+  "backupWarning": "Ich verstehe, dass ich den Zugriff auf meine Hi-G-Wallets verliere, wenn ich diesen geheimen Satz verliere oder vergesse.",
+  "backupManually": "Manuell sichern",
+  "errorGeneratingSecretPhrase": "Fehler beim Generieren der geheimen Phrase"
 }

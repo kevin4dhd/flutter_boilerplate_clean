@@ -4,9 +4,10 @@ import '../../app.dart';
 
 /// define custom themes here
 final lightTheme = ThemeData(
+  useMaterial3: true,
   scaffoldBackgroundColor: AppColors.defaultAppColor.primaryColor,
   appBarTheme: AppBarTheme(
-    backgroundColor: AppColors.darkThemeColor.primaryColor,
+    backgroundColor: AppColors.defaultAppColor.primaryColor,
   ),
   pageTransitionsTheme: const PageTransitionsTheme(
     builders: {
@@ -22,6 +23,7 @@ final lightTheme = ThemeData(
   );
 
 final darkTheme = ThemeData(
+  useMaterial3: true,
   scaffoldBackgroundColor: AppColors.darkThemeColor.primaryColor,
   appBarTheme: AppBarTheme(
     backgroundColor: AppColors.darkThemeColor.primaryColor,

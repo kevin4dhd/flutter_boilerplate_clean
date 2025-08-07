@@ -25,6 +25,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: AuthRoute.page),
         AutoRoute(page: PassCodeRoute.page),
         AutoRoute(page: ConfirmPassCodeRoute.page),
+        AutoRoute(page: SecretPhraseCreationRoute.page),
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: MainRoute.page, children: [
           AutoRoute(

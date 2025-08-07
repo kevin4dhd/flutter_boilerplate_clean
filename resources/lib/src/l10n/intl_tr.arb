@@ -55,5 +55,11 @@
   "biometricRequiredTitle": "Biyometri Gerekli",
   "deviceCredentialsRequiredTitle": "Cihaz Kimlik Bilgileri Gerekli",
   "deviceCredentialsSetupDescription": "Cihaz ekran kilidini ayarlayın.",
-  "localizedReason": "Uygulamaya güvenli erişim sağlamak için kimlik doğrulaması yapın."
+  "localizedReason": "Uygulamaya güvenli erişim sağlamak için kimlik doğrulaması yapın.",
+  "backup": "Yedekle",
+  "backupSecretPhrase": "Gizli ifadeyi yedekle",
+  "protectAssetsBackupInstruction": "Bu 12 kelimeyi güvenli bir yerde saklayın. Bu ifadeyi kaybederseniz, Hi-G cüzdanınıza erişiminizi geri kazanamazsınız.",
+  "backupWarning": "Bu gizli ifadeyi kaybedersem veya unutursam, Hi-G cüzdanlarıma erişimi kaybedeceğimi anlıyorum.",
+  "backupManually": "Manuel Yedekle",
+  "errorGeneratingSecretPhrase": "Gizli ifade oluşturulurken hata oluştu"
 }

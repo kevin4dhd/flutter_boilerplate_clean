@@ -9,6 +9,7 @@ export 'num_utils.dart';
 export 'number_format_utils.dart';
 export 'object_utils.dart';
 export 'parse_utils.dart';
+export 'secret_phrase_utils.dart';
 export 'string_utils.dart';
 export 'validation_utils.dart';
 export 'view_utils.dart';

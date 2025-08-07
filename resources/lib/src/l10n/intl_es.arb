@@ -55,5 +55,11 @@
   "biometricRequiredTitle": "Biometría Requerida",
   "deviceCredentialsRequiredTitle": "Credenciales del Dispositivo Requeridas",
   "deviceCredentialsSetupDescription": "Configura el bloqueo de pantalla de tu dispositivo.",
-  "localizedReason": "Autentícate para acceder de forma segura a la app"
+  "localizedReason": "Autentícate para acceder de forma segura a la app",
+  "backup": "Respaldo",
+  "backupSecretPhrase": "Frase Secreta",
+  "protectAssetsBackupInstruction": "Guarda estas 12 palabras en un lugar seguro. Si pierdes esta frase, no podrás recuperar el acceso a tu billetera Hi-G",
+  "backupWarning": "Entiendo que si pierdo o me olvido de esta Frase Secreta, perderé el acceso a mis billeteras Hi-G.",
+  "backupManually": "Respaldar & Continuar",
+  "errorGeneratingSecretPhrase": "Error al generar la frase secreta"
 }

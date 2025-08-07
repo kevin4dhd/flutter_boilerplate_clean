@@ -12,6 +12,9 @@ class AppColors {
     required this.pinBorderColor,
     required this.fingerprintBGColor,
     required this.backButtonColor,
+    required this.appBarButtonBGColor,
+    required this.primaryButtonColor,
+    required this.labelColorPrimaryShade,
     required this.primaryTextColor,
     required this.secondaryTextColor,
     required this.primaryGradient,
@@ -27,6 +30,9 @@ class AppColors {
   final Color pinBorderColor;
   final Color fingerprintBGColor;
   final Color backButtonColor;
+  final Color appBarButtonBGColor;
+  final Color primaryButtonColor;
+  final Color labelColorPrimaryShade;
   final Color primaryTextColor;
   final Color secondaryTextColor;
 
@@ -48,6 +54,9 @@ class AppColors {
     pinBorderColor: Color(0xFF5B6774),
     fingerprintBGColor: Color(0xFF808080),
     backButtonColor: Color(0xFFADA2B9),
+    appBarButtonBGColor: Color(0x4043388A),
+    labelColorPrimaryShade: Color(0xFF6C7CA7),
+    primaryButtonColor: Color(0xFF005865),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -63,6 +72,9 @@ class AppColors {
     pinBorderColor: Color(0xFF5B6774),
     fingerprintBGColor: Color(0xFF808080),
     backButtonColor: Color(0xFFADA2B9),
+    appBarButtonBGColor: Color(0x4043388A),
+    primaryButtonColor: Color(0xFF005865),
+    labelColorPrimaryShade: Color(0xFF6C7CA7),
     primaryTextColor: Colors.white,
     secondaryTextColor: Colors.black,
     primaryGradient:
@@ -86,6 +98,9 @@ class AppColors {
     Color? pinBorderColor,
     Color? fingerprintBGColor,
     Color? backButtonColor,
+    Color? appBarButtonBGColor,
+    Color? primaryButtonColor,
+    Color? labelColorPrimaryShade,
     Color? primaryTextColor,
     Color? secondaryTextColor,
     Color? terciaryTextColor,
@@ -100,6 +115,10 @@ class AppColors {
       pinBorderColor: pinBorderColor ?? this.pinBorderColor,
       fingerprintBGColor: fingerprintBGColor ?? this.fingerprintBGColor,
       backButtonColor: backButtonColor ?? this.backButtonColor,
+      appBarButtonBGColor: appBarButtonBGColor ?? this.appBarButtonBGColor,
+      primaryButtonColor: primaryButtonColor ?? this.primaryButtonColor,
+      labelColorPrimaryShade:
+          labelColorPrimaryShade ?? this.labelColorPrimaryShade,
       primaryTextColor: primaryTextColor ?? this.primaryTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
       primaryGradient: primaryGradient ?? this.primaryGradient,

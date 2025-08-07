@@ -55,5 +55,11 @@
   "biometricRequiredTitle": "Biométrie requise",
   "deviceCredentialsRequiredTitle": "Identifiants de l'appareil requis",
   "deviceCredentialsSetupDescription": "Configurez le verrouillage de l'écran de votre appareil.",
-  "localizedReason": "Authentifiez-vous pour accéder à l'application en toute sécurité."
+  "localizedReason": "Authentifiez-vous pour accéder à l'application en toute sécurité.",
+  "backup": "Sauvegarde",
+  "backupSecretPhrase": "Sauvegarder la phrase secrète",
+  "protectAssetsBackupInstruction": "Conservez ces 12 mots dans un endroit sûr. Si vous perdez cette phrase, vous ne pourrez pas récupérer l'accès à votre portefeuille Hi-G.",
+  "backupWarning": "Je comprends que si je perds ou oublie cette phrase secrète, je perdrai l'accès à mes portefeuilles Hi-G.",
+  "backupManually": "Sauvegarder manuellement",
+  "errorGeneratingSecretPhrase": "Erreur lors de la génération de la phrase secrète"
 }
