@@ -14,6 +14,8 @@ class AppRouteInfoMapper extends BaseRouteInfoMapper {
       auth: () => const AuthRoute(),
       passCode: () => const PassCodeRoute(),
       confirmPassCode: (passCode) => ConfirmPassCodeRoute(passCode: passCode),
+      secretPhraseCreation: (passCodeSettings) =>
+          SecretPhraseCreationRoute(passCodeSettings: passCodeSettings),
       login: () => const LoginRoute(),
       main: () => const MainRoute(),
       itemDetail: (user) => ItemDetailRoute(user: user),

@@ -162,6 +162,21 @@ class AppTextStyles {
         letterSpacing: letterSpacing,
       ));
 
+  static TextStyle s15w500Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+    double? letterSpacing,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d15.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
+        color: AppColors.current.primaryTextColor,
+        letterSpacing: letterSpacing,
+      ));
+
   static TextStyle s16w400Popular({
     String? fontFamily,
     double? tablet,
@@ -198,6 +213,77 @@ class AppTextStyles {
         fontSize:
             Dimens.d18.responsive(tablet: tablet, ultraTablet: ultraTablet),
         fontWeight: FontWeight.w400,
+        color: AppColors.current.primaryTextColor,
+      ));
+
+  static TextStyle s18w500Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d18.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
+        color: AppColors.current.primaryTextColor,
+      ));
+
+  static TextStyle s18w500Icons({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d18.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
+        color: AppColors.current.iconsColor,
+      ));
+
+  static TextStyle s19w400Popular({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+    double? letterSpacing,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d19.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.popularColor,
+        letterSpacing: letterSpacing,
+        height: 0.9,
+      ));
+
+  static TextStyle s20w400Popular({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+    double? letterSpacing,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d20.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.popularColor,
+        letterSpacing: letterSpacing,
+        height: 0.9,
+      ));
+
+  static TextStyle s30w500Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d30.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
         color: AppColors.current.primaryTextColor,
       ));
 

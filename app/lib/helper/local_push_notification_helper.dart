@@ -34,7 +34,6 @@ class LocalPushNotificationHelper with LogMixin {
     await Future.wait([
       FlutterLocalNotificationsPlugin().initialize(
         init,
-        // TODO(minh): handle later: onSelectNotification: _onSelectNotification,
       ),
     ]);
 
@@ -90,7 +89,6 @@ class LocalPushNotificationHelper with LogMixin {
           notification.title,
           notification.message,
           platformChannelSpecifics,
-          // TODO(minh): handle later payload: jsonEncode(data),
         )
         .onError((error, stackTrace) =>
             logE('Can not show notification cause $error'));

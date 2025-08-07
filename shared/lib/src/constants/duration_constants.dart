@@ -10,4 +10,6 @@ class DurationConstants {
   static const defaultSnackBarDuration = Duration(seconds: 3);
   static const defaultErrorVisibleDuration = Duration(seconds: 3);
   static const defaultSplashDuration = Duration(seconds: 3);
+  static const tickerDuration = Duration(seconds: 3);
+  static const tickerReturnDuration = Duration(milliseconds: 800);
 }

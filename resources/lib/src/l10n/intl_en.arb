@@ -55,5 +55,11 @@
   "biometricRequiredTitle": "Biometric Required",
   "deviceCredentialsRequiredTitle": "Device Credentials Required",
   "deviceCredentialsSetupDescription": "Set up your device's screen lock.",
-  "localizedReason": "Authenticate to securely access the app."
+  "localizedReason": "Authenticate to securely access the app.",
+  "backup": "Backup",
+  "backupSecretPhrase": "Back up secret phrase",
+  "protectAssetsBackupInstruction": "Save these 12 words in a safe place. If you lose this phrase, you will not be able to regain access to your Hi-G wallet.",
+  "backupWarning": "I understand that if I lose or forget this secret phrase I will lose access to my Hi-G wallets.",
+  "backupManually": "Backup Manually",
+  "errorGeneratingSecretPhrase": "Error generating the secret phrase"
 }

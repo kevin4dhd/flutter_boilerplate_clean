@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:resources/resources.dart';
@@ -44,7 +45,14 @@ class ConfirmPassCodeBloc
     return runBlocCatching(
       action: () async {
         if (event.confirmPassCode == event.passCode) {
-          // await navigator.replace(AppRouteInfo.xxx(event.confirmPassCode));
+          await navigator.replace(
+            AppRouteInfo.secretPhraseCreation(
+              PassCodeSettings(
+                passCode: event.confirmPassCode,
+                enabledBiometric: state.enabledBiometric,
+              ),
+            ),
+          );
         } else {
           emit(state.copyWith(
             shouldClearPin: true,

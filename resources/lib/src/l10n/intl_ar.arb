@@ -55,5 +55,11 @@
   "biometricRequiredTitle": "المصادقة البيومترية مطلوبة",
   "deviceCredentialsRequiredTitle": "مطلوب بيانات اعتماد الجهاز",
   "deviceCredentialsSetupDescription": "قم بإعداد قفل الشاشة لجهازك.",
-  "localizedReason": "قم بالمصادقة للوصول الآمن إلى التطبيق."
+  "localizedReason": "قم بالمصادقة للوصول الآمن إلى التطبيق.",
+  "backup": "نسخ احتياطي",
+  "backupSecretPhrase": "نسخ احتياطي للعبارة السرية",
+  "protectAssetsBackupInstruction": "احفظ هذه الكلمات الـ 12 في مكان آمن. إذا فقدت هذه العبارة، لن تتمكن من استعادة الوصول إلى محفظة Hi-G الخاصة بك.",
+  "backupWarning": "أتفهم أنه إذا فقدت أو نسيت هذه العبارة السرية، سأفقد الوصول إلى محافظ Hi-G الخاصة بي.",
+  "backupManually": "نسخ احتياطي يدوي",
+  "errorGeneratingSecretPhrase": "حدث خطأ أثناء إنشاء العبارة السرية"
 }

@@ -12,4 +12,12 @@ class AppButtonStyles {
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         textStyle: const TextStyle(fontSize: 20),
       );
+
+  static ButtonStyle getAppBarButtonStyle() => ElevatedButton.styleFrom(
+        backgroundColor: AppColors.current.appBarButtonBGColor,
+        foregroundColor: AppColors.current.iconsColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        textStyle: AppTextStyles.s18w500Icons(),
+      );
 }
