@@ -61,5 +61,9 @@
   "protectAssetsBackupInstruction": "Bewahren Sie diese 12 Wörter an einem sicheren Ort auf. Wenn Sie diesen Satz verlieren, können Sie nicht mehr auf Ihre Hi-G-Brieftasche zugreifen.",
   "backupWarning": "Ich verstehe, dass ich den Zugriff auf meine Hi-G-Wallets verliere, wenn ich diesen geheimen Satz verliere oder vergesse.",
   "backupManually": "Manuell sichern",
-  "errorGeneratingSecretPhrase": "Fehler beim Generieren der geheimen Phrase"
+  "errorGeneratingSecretPhrase": "Fehler beim Generieren der geheimen Phrase",
+  "confirmSeedPhraseTitle": "Geheimen Satz bestätigen",
+  "confirmSeedPhraseInstruction": "Wählen Sie jedes Wort in der Reihenfolge aus, in der es Ihnen präsentiert wurde:",
+  "somethingWrong": "Etwas ist schiefgelaufen",
+  "sequenceMismatch": "Falsche Reihenfolge"
 }

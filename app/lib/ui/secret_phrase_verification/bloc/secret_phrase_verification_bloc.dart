@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:resources/resources.dart';
 import 'package:shared/shared.dart';
 
 import '../../../app.dart';
@@ -103,7 +104,7 @@ class SecretPhraseVerificationBloc extends BaseBloc<
           final randomIndexes = state.randomIndexes;
           if (!SecretPhraseUtils.areSelectedWordsValid(
               selectedWords, randomIndexes)) {
-            verificationError = 'mnemonic_doesnt_match';
+            verificationError = S.current.sequenceMismatch;
           } else {
             // final publickey =
             //     await ref.read(authProvider.notifier).walletCreate(
@@ -129,7 +130,7 @@ class SecretPhraseVerificationBloc extends BaseBloc<
           navigator.showErrorSnackBar(error);
         } catch (error) {
           Log.e(error);
-          navigator.showErrorSnackBar('something_wrong');
+          navigator.showErrorSnackBar(S.current.somethingWrong);
         }
 
         emit(state.copyWith(

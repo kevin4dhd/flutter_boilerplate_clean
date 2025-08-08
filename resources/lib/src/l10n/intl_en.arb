@@ -61,5 +61,9 @@
   "protectAssetsBackupInstruction": "Save these 12 words in a safe place. If you lose this phrase, you will not be able to regain access to your Hi-G wallet.",
   "backupWarning": "I understand that if I lose or forget this secret phrase I will lose access to my Hi-G wallets.",
   "backupManually": "Backup Manually",
-  "errorGeneratingSecretPhrase": "Error generating the secret phrase"
+  "errorGeneratingSecretPhrase": "Error generating the secret phrase",
+  "confirmSeedPhraseTitle": "Confirm Seed Phrase",
+  "confirmSeedPhraseInstruction": "Select each word in the order it was presented to you:",
+  "somethingWrong": "Something went wrong",
+  "sequenceMismatch": "Sequence mismatch"
 }

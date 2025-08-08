@@ -61,5 +61,9 @@
   "protectAssetsBackupInstruction": "Salva queste 12 parole in un posto sicuro. Se perdi questa frase, non potrai riottenere l'accesso al tuo portafoglio Hi-G.",
   "backupWarning": "Comprendo che se perdo o dimentico questa frase segreta perderò l'accesso ai miei portafogli Hi-G.",
   "backupManually": "Backup Manuale",
-  "errorGeneratingSecretPhrase": "Errore durante la generazione della frase segreta"
+  "errorGeneratingSecretPhrase": "Errore durante la generazione della frase segreta",
+  "confirmSeedPhraseTitle": "Conferma Frase Seed",
+  "confirmSeedPhraseInstruction": "Seleziona ogni parola nell'ordine in cui ti è stata presentata:",
+  "somethingWrong": "Qualcosa è andato storto",
+  "sequenceMismatch": "Sequenza errata"
 }

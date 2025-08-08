@@ -86,7 +86,7 @@ class _SecretPhraseVerificationPageState extends BasePageState<
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'confirm_seed_phrase_title',
+                            S.current.confirmSeedPhraseTitle,
                             textAlign: TextAlign.center,
                             style: AppTextStyles.s18w500Primary(
                               fontFamily: FontFamily.poppins,
@@ -99,7 +99,7 @@ class _SecretPhraseVerificationPageState extends BasePageState<
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  'confirm_seed_phrase_instruction',
+                                  S.current.confirmSeedPhraseInstruction,
                                   style: AppTextStyles.s14w400Shade(
                                     fontFamily: FontFamily.poppins,
                                   ),

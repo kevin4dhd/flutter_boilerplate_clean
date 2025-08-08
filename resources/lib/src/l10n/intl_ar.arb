@@ -61,5 +61,9 @@
   "protectAssetsBackupInstruction": "احفظ هذه الكلمات الـ 12 في مكان آمن. إذا فقدت هذه العبارة، لن تتمكن من استعادة الوصول إلى محفظة Hi-G الخاصة بك.",
   "backupWarning": "أتفهم أنه إذا فقدت أو نسيت هذه العبارة السرية، سأفقد الوصول إلى محافظ Hi-G الخاصة بي.",
   "backupManually": "نسخ احتياطي يدوي",
-  "errorGeneratingSecretPhrase": "حدث خطأ أثناء إنشاء العبارة السرية"
+  "errorGeneratingSecretPhrase": "حدث خطأ أثناء إنشاء العبارة السرية",
+  "confirmSeedPhraseTitle": "تأكيد عبارة البذور",
+  "confirmSeedPhraseInstruction": "حدد كل كلمة بالترتيب الذي تم عرضه لك:",
+  "somethingWrong": "حدث خطأ ما",
+  "sequenceMismatch": "تسلسل غير صحيح"
 }
