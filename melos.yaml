@@ -219,3 +219,7 @@ scripts:
     run: |
       cd nals_lints && flutter pub get && cd ..
     description: Run pub get on nals_lints module.
+
+  check_l10n_parity:
+    run: dart tools/l10n/check_l10n_parity.dart
+    description: Verify that all ARB files have the same set of keys as intl_en.arb.
