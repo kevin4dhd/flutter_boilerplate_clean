@@ -1,5 +1,6 @@
 import 'package:bip39_mnemonic/bip39_mnemonic.dart';
 import 'package:flutter/material.dart';
+import 'package:shared/shared.dart';
 
 import '../app.dart';
 
@@ -47,7 +48,8 @@ class SecretPhraseViewer extends StatelessWidget {
                               color: labelColorPrimaryShade,
                               width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(4),
+                            borderRadius:
+                                BorderRadius.circular(UiConstants.commonRAS),
                           ),
                           child: AppTicker(
                             child: RichText(

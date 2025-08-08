@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bip39_mnemonic/bip39_mnemonic.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared/shared.dart';
@@ -74,9 +75,14 @@ class SecretPhraseCreationBloc
   FutureOr<void> _onTapOnContinue(
       TapOnContinue event, Emitter<SecretPhraseCreationState> emit) {
     return runBlocCatching(
-      action: () async {
-        // await navigator.xxx
-      },
+      action: () async => await navigator.push(
+        AppRouteInfo.secretPhraseVerification(
+          (
+            passCodeSettings: event.passCodeSettings,
+            secretPhrase: state.secretPhrase!,
+          ),
+        ),
+      ),
       handleLoading: false,
     );
   }

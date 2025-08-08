@@ -108,6 +108,19 @@ class AppTextStyles {
         color: AppColors.current.popularColor,
       ));
 
+  static TextStyle s14w400Shade({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d14.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.labelColorPrimaryShade,
+      ));
+
   static TextStyle s14BoldPrimary({
     String? fontFamily,
     double? tablet,

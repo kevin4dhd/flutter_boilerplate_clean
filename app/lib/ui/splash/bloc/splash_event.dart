@@ -9,6 +9,6 @@ abstract class SplashEvent extends BaseBlocEvent {
 }
 
 @freezed
-class SplashPageInitiated extends SplashEvent with _$SplashPageInitiated {
-  const factory SplashPageInitiated() = _SplashPageInitiated;
+class PageInitiated extends SplashEvent with _$PageInitiated {
+  const factory PageInitiated() = _PageInitiated;
 }

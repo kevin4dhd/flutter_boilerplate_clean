@@ -1,3 +1,4 @@
+import 'package:domain/domain.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../base/bloc/base_bloc_event.dart';
@@ -30,5 +31,7 @@ class SetCheck2 extends SecretPhraseCreationEvent with _$SetCheck2 {
 
 @freezed
 class TapOnContinue extends SecretPhraseCreationEvent with _$TapOnContinue {
-  const factory TapOnContinue() = _TapOnContinue;
+  const factory TapOnContinue({
+    required PassCodeSettings passCodeSettings,
+  }) = _TapOnContinue;
 }

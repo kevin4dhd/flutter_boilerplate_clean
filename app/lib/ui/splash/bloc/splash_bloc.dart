@@ -11,16 +11,16 @@ import 'splash.dart';
 @Injectable()
 class SplashBloc extends BaseBloc<SplashEvent, SplashState> {
   SplashBloc(this._isLoggedInUseCase) : super(const SplashState()) {
-    on<SplashPageInitiated>(
-      _onSplashPageInitiated,
+    on<PageInitiated>(
+      _onPageInitiated,
       transformer: log(),
     );
   }
 
   final IsLoggedInUseCase _isLoggedInUseCase;
 
-  FutureOr<void> _onSplashPageInitiated(
-      SplashPageInitiated event, Emitter<SplashState> emit) {
+  FutureOr<void> _onPageInitiated(
+      PageInitiated event, Emitter<SplashState> emit) {
     return runBlocCatching(
       action: () async {
         await Future.delayed(DurationConstants.defaultSplashDuration);

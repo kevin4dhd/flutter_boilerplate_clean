@@ -22,7 +22,7 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc> {
   void initState() {
     super.initState();
     SystemChannels.textInput.invokeMethod('TextInput.hide');
-    bloc.add(const SplashPageInitiated());
+    bloc.add(const PageInitiated());
   }
 
   @override
@@ -65,7 +65,8 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc> {
                       height: 20,
                       width: 31,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius:
+                            BorderRadius.circular(UiConstants.commonRS),
                         color: AppColors.current.secondaryColor,
                       ),
                       child: Assets.images.vector.image(),
@@ -95,7 +96,8 @@ class _SplashPageState extends BasePageState<SplashPage, SplashBloc> {
                         height: 20,
                         width: 31,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius:
+                              BorderRadius.circular(UiConstants.commonRS),
                           color: AppColors.current.secondaryColor,
                         ),
                         child: Assets.images.vector.image(),
