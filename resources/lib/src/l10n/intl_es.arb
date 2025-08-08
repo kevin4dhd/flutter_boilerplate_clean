@@ -29,8 +29,8 @@
   "home": "Inicio",
   "darkTheme": "Tema oscuro",
   "japanese": "Japonés",
-  "english": "Inglés",
   "spanish": "Español",
+  "english": "Inglés",
   "continue_": "Continuar",
   "termsPrivacyConsent": "Al tocar 'Continuar', aceptas y consientes nuestros {Términos de servicio,1} y nuestra {Política de privacidad,2}.",
   "createNewWallet": "Crear nueva billetera",
@@ -61,5 +61,9 @@
   "protectAssetsBackupInstruction": "Guarda estas 12 palabras en un lugar seguro. Si pierdes esta frase, no podrás recuperar el acceso a tu billetera Hi-G",
   "backupWarning": "Entiendo que si pierdo o me olvido de esta Frase Secreta, perderé el acceso a mis billeteras Hi-G.",
   "backupManually": "Respaldar & Continuar",
-  "errorGeneratingSecretPhrase": "Error al generar la frase secreta"
+  "errorGeneratingSecretPhrase": "Error al generar la frase secreta",
+  "confirmSeedPhraseTitle": "Confirma tu Frase Secreta",
+  "confirmSeedPhraseInstruction": "Selecciona cada palabra en el orden en que aparecieron en la pantalla anterior:",
+  "somethingWrong": "Algo salió mal",
+  "sequenceMismatch": "Secuencia incorrecta"
 }

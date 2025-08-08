@@ -31,7 +31,7 @@ class WalletActionButton extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: AppColors.current.terciaryColor25,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(UiConstants.commonR),
         ),
         child: Row(
           children: [

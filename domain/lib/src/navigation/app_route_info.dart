@@ -1,3 +1,4 @@
+import 'package:bip39_mnemonic/bip39_mnemonic.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain.dart';
@@ -15,6 +16,8 @@ class AppRouteInfo with _$AppRouteInfo {
       _ConfirmPassCode;
   const factory AppRouteInfo.secretPhraseCreation(
       PassCodeSettings passCodeSettings) = _SecretPhraseCreation;
+  const factory AppRouteInfo.secretPhraseVerification(
+      SecretPhraseVerificationParams params) = _SecretPhraseVerification;
   const factory AppRouteInfo.login() = _Login;
   const factory AppRouteInfo.main() = _Main;
   const factory AppRouteInfo.itemDetail(User user) = _UserDetail;

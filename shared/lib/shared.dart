@@ -43,7 +43,5 @@ export 'src/helper/stream/disposable.dart';
 export 'src/helper/stream/dispose_bag.dart';
 export 'src/helper/stream/stream_logger.dart';
 export 'src/mixin/log_mixin.dart';
-export 'src/model/big_decimal.dart';
-export 'src/model/shared_enum.dart';
-export 'src/model/typedef.dart';
+export 'src/model/model.dart';
 export 'src/utils/utils.dart';

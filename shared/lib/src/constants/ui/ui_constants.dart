@@ -43,9 +43,14 @@ class UiConstants {
   static const commonRS = 5.0;
   static const commonRL = 20.0;
 
+  static const commonRA = 8.0;
+  static const commonRAS = 4.0;
+  static const commonRAL = 16.0;
+
   static const iconSizeS = 20.0;
   static const iconSize = 30.0;
   static const iconSizeL = 40.0;
 
   static const defaultPinLength = 6;
+  static const wordsToVerify = 3;
 }

@@ -29,8 +29,8 @@
   "home": "Ana sayfa",
   "darkTheme": "Karanlık tema",
   "japanese": "Japonca",
-  "english": "İngilizce",
   "spanish": "İspanyolca",
+  "english": "İngilizce",
   "continue_": "Devam et",
   "termsPrivacyConsent": "'Devam et'e dokunarak {Hizmet Şartları,1} ve {Gizlilik Politikası,2}'nı kabul etmiş olursunuz.",
   "createNewWallet": "Yeni bir cüzdan oluştur",
@@ -61,5 +61,9 @@
   "protectAssetsBackupInstruction": "Bu 12 kelimeyi güvenli bir yerde saklayın. Bu ifadeyi kaybederseniz, Hi-G cüzdanınıza erişiminizi geri kazanamazsınız.",
   "backupWarning": "Bu gizli ifadeyi kaybedersem veya unutursam, Hi-G cüzdanlarıma erişimi kaybedeceğimi anlıyorum.",
   "backupManually": "Manuel Yedekle",
-  "errorGeneratingSecretPhrase": "Gizli ifade oluşturulurken hata oluştu"
+  "errorGeneratingSecretPhrase": "Gizli ifade oluşturulurken hata oluştu",
+  "confirmSeedPhraseTitle": "Gizli ifadeyi doğrula",
+  "confirmSeedPhraseInstruction": "Her kelimeyi size sunulduğu sırayla seçin:",
+  "somethingWrong": "Bir şeyler ters gitti",
+  "sequenceMismatch": "Sıra uyuşmuyor"
 }

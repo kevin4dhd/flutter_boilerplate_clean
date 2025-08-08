@@ -48,7 +48,7 @@ class _SecretPhraseCreationPageState
         return CommonScaffold(
           appBar: CommonAppBar(
             automaticallyImplyLeading: false,
-            text: 'backup',
+            text: S.current.backup,
             leadingIcon: LeadingIcon.none,
             actions: [
               ElevatedButton(
@@ -81,7 +81,7 @@ class _SecretPhraseCreationPageState
                     ] else
                       const SizedBox(height: 150),
                     Text(
-                      'backup_secret_phrase',
+                      S.current.backupSecretPhrase,
                       textAlign: TextAlign.center,
                       style: AppTextStyles.s30w500Primary(
                         fontFamily: FontFamily.ntr,
@@ -89,9 +89,9 @@ class _SecretPhraseCreationPageState
                     ),
                     const SizedBox(height: 10),
                     Padding(
-                      padding: EdgeInsetsGeometry.symmetric(horizontal: 60),
+                      padding: EdgeInsetsGeometry.symmetric(horizontal: 50),
                       child: Text(
-                        'protect_assets_backup_instruction',
+                        S.current.protectAssetsBackupInstruction,
                         textAlign: TextAlign.center,
                         style: AppTextStyles.s20w400Popular(
                           fontFamily: FontFamily.ntr,
@@ -102,7 +102,7 @@ class _SecretPhraseCreationPageState
                     const SizedBox(height: 50),
                     if (showSecretPhrase) ...[
                       ToggleButtonWithLabel(
-                        label: 'backup_warning',
+                        label: S.current.backupWarning,
                         style: AppTextStyles.s19w400Popular(
                           fontFamily: FontFamily.ntr,
                           letterSpacing: -0.5,
@@ -116,7 +116,11 @@ class _SecretPhraseCreationPageState
                       const SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: enabled && isCheck2
-                            ? () => bloc.add(const TapOnContinue())
+                            ? () => bloc.add(
+                                  TapOnContinue(
+                                    passCodeSettings: widget.passCodeSettings,
+                                  ),
+                                )
                             : null,
                         style: AppButtonStyles.getBasicStyle(),
                         child: Container(
@@ -127,7 +131,7 @@ class _SecretPhraseCreationPageState
                       ),
                     ] else ...[
                       ToggleButtonWithLabel(
-                        label: 'backup_warning',
+                        label: S.current.backupWarning,
                         style: AppTextStyles.s19w400Popular(
                           fontFamily: FontFamily.ntr,
                           letterSpacing: -0.5,
@@ -147,7 +151,7 @@ class _SecretPhraseCreationPageState
                         child: Container(
                           alignment: Alignment.center,
                           width: width,
-                          child: Text('backup_manually'),
+                          child: Text(S.current.backupManually),
                         ),
                       ),
                     ],

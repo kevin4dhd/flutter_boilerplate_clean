@@ -102,11 +102,18 @@ flutter:
     - family: NotoColorEmoji
       fonts:
         - asset: assets/fonts/NotoColorEmoji-Regular.ttf
-#    - family: Muli
-#      fonts:
-#        - asset: assets/fonts/Muli-Bold.ttf
-#          weight: 900
-#        - asset: assets/fonts/Muli-SemiBold.ttf
-#          weight: 700
-#        - asset: assets/fonts/Muli-Regular.ttf
-#          weight: 400
+    - family: poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+    - family: opensans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 700

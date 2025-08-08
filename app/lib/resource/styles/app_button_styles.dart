@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared/shared.dart';
 
 import '../../app.dart';
 
@@ -16,7 +17,9 @@ class AppButtonStyles {
   static ButtonStyle getAppBarButtonStyle() => ElevatedButton.styleFrom(
         backgroundColor: AppColors.current.appBarButtonBGColor,
         foregroundColor: AppColors.current.iconsColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(UiConstants.commonRA),
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 10),
         textStyle: AppTextStyles.s18w500Icons(),
       );
