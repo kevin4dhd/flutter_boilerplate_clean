@@ -52,4 +52,5 @@ class UiConstants {
   static const iconSizeL = 40.0;
 
   static const defaultPinLength = 6;
+  static const wordsToVerify = 3;
 }

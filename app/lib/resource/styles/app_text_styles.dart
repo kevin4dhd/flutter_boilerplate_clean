@@ -121,6 +121,19 @@ class AppTextStyles {
         color: AppColors.current.labelColorPrimaryShade,
       ));
 
+  static TextStyle s14w400Alert({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d14.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w400,
+        color: AppColors.current.alertLigthColor,
+      ));
+
   static TextStyle s14BoldPrimary({
     String? fontFamily,
     double? tablet,
@@ -201,6 +214,33 @@ class AppTextStyles {
             Dimens.d16.responsive(tablet: tablet, ultraTablet: ultraTablet),
         fontWeight: FontWeight.w400,
         color: AppColors.current.popularColor,
+      ));
+
+  static TextStyle s16w500Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d16.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
+        color: AppColors.current.primaryTextColor,
+        height: 0.09,
+      ));
+
+  static TextStyle s16w500Shade({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d16.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
+        color: AppColors.current.labelColorPrimaryShade,
       ));
 
   static TextStyle s17w400Primary({
