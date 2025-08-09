@@ -15,6 +15,11 @@ final lightTheme = ThemeData(
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     },
   ),
+  textSelectionTheme: TextSelectionThemeData(
+    selectionColor: AppColors.defaultAppColor.primaryColor50,
+    selectionHandleColor: AppColors.defaultAppColor.primaryColor,
+    cursorColor: AppColors.defaultAppColor.primaryColor,
+  ),
   brightness: Brightness.dark,
   splashColor: Colors.transparent,
 )..addAppColor(
@@ -33,6 +38,11 @@ final darkTheme = ThemeData(
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     },
+  ),
+  textSelectionTheme: TextSelectionThemeData(
+    selectionColor: AppColors.darkThemeColor.primaryColor50,
+    selectionHandleColor: AppColors.darkThemeColor.primaryColor,
+    cursorColor: AppColors.darkThemeColor.primaryColor,
   ),
   brightness: Brightness.dark,
   splashColor: Colors.transparent,

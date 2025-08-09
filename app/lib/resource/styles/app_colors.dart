@@ -38,13 +38,25 @@ class AppColors {
   final Color primaryTextColor;
   final Color secondaryTextColor;
 
+  Color get primaryColor50 => terciaryColor.withValues(alpha: 0.50);
+
+  Color get terciaryColor10 => terciaryColor.withValues(alpha: 0.10);
+
   Color get terciaryColor25 => terciaryColor.withValues(alpha: 0.25);
 
+  Color get terciaryColor75 => terciaryColor.withValues(alpha: 0.75);
+
   Color get iconsColor40 => iconsColor.withValues(alpha: 0.40);
+
+  Color get iconsColor50 => iconsColor.withValues(alpha: 0.50);
 
   Color get fingerprintBGColor55 => iconsColor.withValues(alpha: 0.55);
 
   Color get alertLigthColor25 => alertLigthColor.withValues(alpha: 0.25);
+
+  Color get popularColor50 => popularColor.withValues(alpha: 0.50);
+
+  Color get popularColor75 => popularColor.withValues(alpha: 0.75);
 
   /// gradient
   final LinearGradient primaryGradient;

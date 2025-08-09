@@ -18,6 +18,7 @@ class AppRouteInfo with _$AppRouteInfo {
       PassCodeSettings passCodeSettings) = _SecretPhraseCreation;
   const factory AppRouteInfo.secretPhraseVerification(
       SecretPhraseVerificationParams params) = _SecretPhraseVerification;
+  const factory AppRouteInfo.registerUserInfo() = _RegisterUserInfo;
   const factory AppRouteInfo.login() = _Login;
   const factory AppRouteInfo.main() = _Main;
   const factory AppRouteInfo.itemDetail(User user) = _UserDetail;

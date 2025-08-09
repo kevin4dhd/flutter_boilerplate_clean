@@ -48,6 +48,7 @@ class UiConstants {
   static const commonRAL = 16.0;
 
   static const iconSizeS = 20.0;
+  static const iconSizeM = 25.0;
   static const iconSize = 30.0;
   static const iconSizeL = 40.0;
 

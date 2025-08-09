@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:domain/domain.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:resources/resources.dart';
@@ -106,25 +107,7 @@ class SecretPhraseVerificationBloc extends BaseBloc<
               selectedWords, randomIndexes)) {
             verificationError = S.current.sequenceMismatch;
           } else {
-            // final publickey =
-            //     await ref.read(authProvider.notifier).walletCreate(
-            //           widget.snemo,
-            //           widget.password,
-            //         );
-            // if (publickey == null) {
-            //   verifyErr.value =
-            //       'Error generating the seed phrase. Please try again later.';
-            // } else if (publickey.isNotEmpty && context.mounted) {
-            //   Navigator.pushAndRemoveUntil(
-            //     context,
-            //     PageTransition(
-            //       duration: const Duration(milliseconds: 100),
-            //       type: PageTransitionType.rightToLeft,
-            //       child: const RegisterUserInfo(),
-            //     ),
-            //     (Route<dynamic> route) => false,
-            //   );
-            // }
+            await navigator.replaceAll([AppRouteInfo.registerUserInfo()]);
           }
         } on String catch (error) {
           navigator.showErrorSnackBar(error);

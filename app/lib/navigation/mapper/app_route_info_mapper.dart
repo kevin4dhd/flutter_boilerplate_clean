@@ -18,6 +18,7 @@ class AppRouteInfoMapper extends BaseRouteInfoMapper {
           SecretPhraseCreationRoute(passCodeSettings: passCodeSettings),
       secretPhraseVerification: (params) =>
           SecretPhraseVerificationRoute(params: params),
+      registerUserInfo: () => const RegisterUserInfoRoute(),
       login: () => const LoginRoute(),
       main: () => const MainRoute(),
       itemDetail: (user) => ItemDetailRoute(user: user),

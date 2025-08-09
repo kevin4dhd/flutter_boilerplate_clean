@@ -56,6 +56,19 @@ class AppTextStyles {
         color: AppColors.current.primaryTextColor,
       ));
 
+  static TextStyle s12w500Primary({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d12.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
+        color: AppColors.current.primaryTextColor,
+      ));
+
   static TextStyle s12BoldPopular({
     String? fontFamily,
     double? tablet,
@@ -293,6 +306,34 @@ class AppTextStyles {
             Dimens.d18.responsive(tablet: tablet, ultraTablet: ultraTablet),
         fontWeight: FontWeight.w500,
         color: AppColors.current.iconsColor,
+      ));
+
+  static TextStyle s18w500Popular({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d18.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
+        color: AppColors.current.popularColor,
+        overflow: TextOverflow.ellipsis,
+      ));
+
+  static TextStyle s18w500Popular75({
+    String? fontFamily,
+    double? tablet,
+    double? ultraTablet,
+  }) =>
+      _baseTextStyle.merge(TextStyle(
+        fontFamily: fontFamily,
+        fontSize:
+            Dimens.d18.responsive(tablet: tablet, ultraTablet: ultraTablet),
+        fontWeight: FontWeight.w500,
+        color: AppColors.current.popularColor75,
+        overflow: TextOverflow.ellipsis,
       ));
 
   static TextStyle s19w400Popular({
