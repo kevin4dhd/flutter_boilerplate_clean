@@ -1,5 +1,5 @@
 import 'package:bip39_mnemonic/bip39_mnemonic.dart';
-import '../../domain.dart';
+import '../../../domain.dart';
 
 typedef SecretPhraseVerificationParams = ({
   PassCodeSettings passCodeSettings,

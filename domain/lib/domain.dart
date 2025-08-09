@@ -10,7 +10,7 @@ export 'src/entity/enum/enum.dart';
 export 'src/navigation/app_navigator.dart';
 export 'src/navigation/app_popup_info.dart';
 export 'src/navigation/app_route_info.dart';
-export 'src/navigation/typedef.dart';
+export 'src/navigation/params/params.dart';
 export 'src/repository/repository.dart';
 export 'src/usecase/base/base_use_case.dart';
 export 'src/usecase/base/future/base_future_use_case.dart';
